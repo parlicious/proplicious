@@ -1,6 +1,7 @@
 const { VueLoaderPlugin } = require('vue-loader');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
@@ -10,16 +11,21 @@ module.exports = {
     target : 'web',
     output: {
         path       : __dirname + '/build',
-        publicPath : './',
+        publicPath : '/',
         filename   : "bundle.js"
     },
     plugins : [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            hot: true
         }),
-        new VueLoaderPlugin()
-    ]
-    ,
+        new VueLoaderPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        contentBase: __dirname + '/build'
+    },
     module : {
         rules : [
             { 
