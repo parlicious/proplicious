@@ -1,7 +1,9 @@
 import Vue from 'vue';
-import HelloVue from './components/HelloVue.vue';
+import router from './router';
+import App from './components/App.vue';
 
 new Vue({
+    router,
     el : '#app',
-    render : h => h(HelloVue)
+    render : h => h(App)
 });
