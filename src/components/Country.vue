@@ -1,5 +1,8 @@
 <template>
-    <li>{{country.name}}</li>
+    <li>
+        <span class="flag">{{country.flag}}</span>
+        <span>{{country.name}}</span>
+    </li>
 </template>
 
 <script>

@@ -1,70 +1,90 @@
 export default {
     A : [
         {
-            name : 'Ireland'
+            name : 'Ireland',
+            flag : '🇮🇪'
         },
         {
-            name : 'Scotland'
+            name : 'Scotland',
+            flag : '🏴󠁧󠁢󠁳󠁣󠁴󠁿'
         },
         {
-            name : 'Japan'
+            name : 'Japan',
+            flag : '🇯🇵'
         },
         {
-            name : 'Russia'
+            name : 'Russia',
+            flag : '🇷🇺'
         },
         {
-            name : 'Samoa'
+            name : 'Samoa',
+            flag : '🇼🇸'
         }
     ],
     B : [
         {
-            name : 'New Zealand'
+            name : 'New Zealand',
+            flag : '🇳🇿'
         },
         {
-            name : 'South Africa'
+            name : 'South Africa',
+            flag : '🇿🇦'
         },
         {
-            name : 'Italy'
+            name : 'Italy',
+            flag : '🇮🇹'
         },
         {
-            name : 'Namibia'
+            name : 'Namibia',
+            flag : '🇳🇦'
         },
         {
-            name : 'Canada'
+            name : 'Canada',
+            flag : '🇨🇦'
         }
     ],
     C : [
         {
-            name : 'England'
+            name : 'England',
+            flag : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'
         },
         {
-            name : 'France'
+            name : 'France',
+            flag : '🇫🇷'
         },
         {
-            name : 'Argentina'
+            name : 'Argentina',
+            flag : '🇦🇷'
         },
         {
-            name : 'USA'
+            name : 'USA',
+            flag : '🇺🇸'
         },
         {
-            name : 'Tonga'
+            name : 'Tonga',
+            flag : '🇹🇴'
         }
     ],
     D : [
         {
-            name : 'Australia'
+            name : 'Australia',
+            flag : '🇦🇺'
         },
         {
-            name : 'Wales'
+            name : 'Wales',
+            flag : '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
         },
         {
-            name : 'Georgia'
+            name : 'Georgia',
+            flag : '🇬🇪'
         },
         {
-            name : 'Fiji'
+            name : 'Fiji',
+            flag : '🇫🇯'
         },
         {
-            name : 'Uruguay'
+            name : 'Uruguay',
+            flag : '🇺🇾'
         }
     ]
 };

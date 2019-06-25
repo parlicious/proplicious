@@ -18,4 +18,17 @@ export default {
     }
 }
 </script>
+<style lang="sass" scoped>
+    h3 {
+        font-size : 22pt;
+        margin-bottom : 5px;
+    }
+    ul {
+        margin : 0;
+        list-style: none;
+        padding : 0;
+        font-size: 20pt;
+    }
+</style>
+
 
