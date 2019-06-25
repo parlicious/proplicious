@@ -24,7 +24,10 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: __dirname + '/build'
+        contentBase: __dirname + '/build',
+        historyApiFallback : {
+            index : 'index.html'
+        }
     },
     module : {
         rules : [
