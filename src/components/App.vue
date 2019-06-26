@@ -7,4 +7,9 @@
         <router-view></router-view>
     </div>
 </template>
-
+<style lang="sass">
+body {
+    font-family: sans-serif;
+    font-size: 120%;
+}
+</style>

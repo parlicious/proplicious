@@ -1,6 +1,6 @@
 <template>
     <div>
-        <pool 
+        <pool-div 
             v-for="(countries, letter) in pools"
             :countries=countries
             :letter=letter
@@ -9,12 +9,12 @@
     </div>
 </template>
 <script>
-import Pool from './Pool.vue';
+import PoolDiv from './PoolDiv.vue';
 import pools from '../data/pools';
 export default {
     data : () => { return { pools }},
     components : {
-        Pool
+        PoolDiv
     }
 }
 </script>
