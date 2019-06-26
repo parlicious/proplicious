@@ -2,15 +2,21 @@
     <li>
         <span class="flag">{{country.flag}}</span>
         <span class="name">{{country.name}}</span>
-        <span class="ew" :class="pool">{{country.ew}}</span>
+        <span class="ew" :class="pool">{{country.ew}}
+            <country-selector :country="country" />
+        </span>
     </li>
 </template>
 
 <script>
+import CountrySelector from './CountrySelector.vue';
 export default {
     props : {
         country : Object,
         pool    : String
+    },
+    components : {
+        CountrySelector
     }
 }
 </script>

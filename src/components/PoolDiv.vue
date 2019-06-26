@@ -33,21 +33,41 @@ export default {
     div {
         display: inline-block;
         margin: 1em;
-        padding:  .5em;
         background-color: $colora-desat;
         border-radius: .5em;
         width : 20em;
-
-        .B {
-            background-color: $colorb-desat;
+        border: 4px solid $colora;
+        h3 {
+            color : white;
+            background : $colora;
+            padding : .5em;
+        }
+        ul {
+            margin : .5em;
         }
 
-        .C {
+        &.B {
+            background: $colorb-desat;
+            border-color: $colorb;
+            h3 {
+                background : $colorb;
+            }
+        }
+
+        &.C {
             background-color: $colorc-desat;
+            border-color: $colorc;
+            h3 {
+                background : $colorc;
+            }
         }
 
         .D {
             background-color: $colord-desat;
+            border-color: $colord;
+            h3 {
+                background: $colord;
+            }
         }
     }
 </style>
