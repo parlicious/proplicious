@@ -12,6 +12,6 @@
 body {
     font-family: sans-serif;
     font-size: 120%;
-    background: $pink;
+    background: $bg;
 }
 </style>

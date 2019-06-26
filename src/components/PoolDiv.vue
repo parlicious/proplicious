@@ -34,20 +34,20 @@ export default {
         display: inline-block;
         margin: 1em;
         padding:  .5em;
-        background-color: $green;
+        background-color: $colora-desat;
         border-radius: .5em;
         width : 20em;
 
         .B {
-            background-color: $yellow;
+            background-color: $colorb-desat;
         }
 
         .C {
-            background-color: $red;
+            background-color: $colorc-desat;
         }
 
         .D {
-            background-color: $purple;
+            background-color: $colord-desat;
         }
     }
 </style>

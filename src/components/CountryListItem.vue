@@ -25,19 +25,19 @@ li {
 .ew {
     font-weight: bold;
     color : white;
-    background : $green-sat;
+    background : $colora;
     border-radius : .5em;
     padding : 0 .3em;
     float : right;
     margin : 0 .5em;
     &.B {
-        background: $yellow-sat;
+        background: $colorb;
     }
     &.C {
-        background: $red-sat;
+        background: $colorc;
     }
     &.D {
-        background: $purple-sat;
+        background: $colord;
     }
 }
 
