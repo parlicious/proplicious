@@ -22,18 +22,18 @@ export default {
             rank : 11
         },
         {
-            name : 'Russia',
-            flag : '🇷🇺',
-            odds : .013,
-            ew   : .7,
-            rank : 20
-        },
-        {
             name : 'Samoa',
             flag : '🇼🇸',
             rank : 16,
             odds : .1,
             ew   : 1.4
+        },
+        {
+            name : 'Russia',
+            flag : '🇷🇺',
+            odds : .013,
+            ew   : .7,
+            rank : 20
         }
     ],
     B : [
@@ -59,18 +59,18 @@ export default {
             ew   : 2.06
         },
         {
-            name : 'Namibia',
-            flag : '🇳🇦',
-            odds : .013,
-            ew   : .45,
-            rank : 23
-        },
-        {
             name : 'Canada',
             flag : '🇨🇦',
             rank : 21,
             odds : .013,
             ew   : .65
+        },
+        {
+            name : 'Namibia',
+            flag : '🇳🇦',
+            odds : .013,
+            ew   : .45,
+            rank : 23
         }
     ],
     C : [
@@ -96,18 +96,18 @@ export default {
             rank : 10
         },
         {
-            name : 'USA',
-            flag : '🇺🇸',
-            rank : 15,
-            odds : .02,
-            ew   : .85
-        },
-        {
             name : 'Tonga',
             flag : '🇹🇴',
             odds : .04,
             ew   : 1.1,
             rank : 13
+        },
+        {
+            name : 'USA',
+            flag : '🇺🇸',
+            rank : 15,
+            odds : .02,
+            ew   : .85
         }
     ],
     D : [
@@ -126,18 +126,18 @@ export default {
             rank : 2
         },
         {
-            name : 'Georgia',
-            flag : '🇬🇪',
-            rank : 12,
-            odds : .1,
-            ew   : 1.68
-        },
-        {
             name : 'Fiji',
             flag : '🇫🇯',
             odds : .2,
             ew   : 1.88,
             rank : 9
+        },
+        {
+            name : 'Georgia',
+            flag : '🇬🇪',
+            rank : 12,
+            odds : .1,
+            ew   : 1.68
         },
         {
             name : 'Uruguay',

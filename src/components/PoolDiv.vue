@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div :class=letter>
         <h3>Pool {{letter}}</h3>
         <ul>
-            <country-list-item v-for="country in countries" :key="country.name" :country="country" />
+            <country-list-item v-for="country in countries" :key="country.name" :country="country" :pool="letter" />
         </ul>
     </div>
 </template>
@@ -34,9 +34,21 @@ export default {
         display: inline-block;
         margin: 1em;
         padding:  .5em;
-        background: $pink;
+        background-color: $green;
         border-radius: .5em;
         width : 20em;
+
+        .B {
+            background-color: $yellow;
+        }
+
+        .C {
+            background-color: $red;
+        }
+
+        .D {
+            background-color: $purple;
+        }
     }
 </style>
 
