@@ -65,6 +65,10 @@ export default {
 <style lang="sass" scoped>
 @import '../glyphs/css/glyphs.css';
 div.selector-wrapper {
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
     position : relative;
     top : 2px;
     font-family: 'glyphs';
@@ -79,12 +83,13 @@ div.selector-wrapper {
             color : red;
         }
         .click-holder {
+            user-select : none;
             cursor : pointer;
             position : absolute;
             left : 0px;
             right : 0px;
             top : 3px;
-            bottom : -3px;
+            bottom : -6px;
             display : inline-block;
             z-index : 2;
         }
