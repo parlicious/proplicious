@@ -7,7 +7,7 @@
 		"vue"
 	],
 	"parserOptions" : {
-		"ecmaVersion" : 2017
+		"ecmaVersion" : 2018
 	},
 	"env" : {
 		"es6" : true,
@@ -16,6 +16,7 @@
 		"mocha" : true
 	},
 	"rules" : {
-		"semi": [1, "always"]
+		"semi": [1, "always"],
+		"vue/html-indent" : ["warn", 4]
 	}
 }

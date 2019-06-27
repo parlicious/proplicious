@@ -5,14 +5,20 @@
             :class="upClass"
         >
             &#xe800;
-            <span class="click-holder" v-on:click="upClicked" />
+            <span
+                class="click-holder"
+                @click="upClicked"
+            />
         </div>
         <div
             class="selector"
             :class="downClass"
         >
             &#xf0dd;
-            <span class="click-holder" v-on:click="downClicked" />
+            <span
+                class="click-holder"
+                @click="downClicked"
+            />
         </div>
     </div>
 </template>
@@ -21,7 +27,10 @@ import { mapGetters, mapMutations } from 'vuex';
 import { PLACE_CALL, REMOVE_CALL, PLACE_PUT, REMOVE_PUT } from '../store/mutationTypes';
 export default {
     props : {
-        country : Object
+        country : {
+            type : Object,
+            default : () => {}
+        }
     },
     computed : {
         ...mapGetters([
@@ -35,7 +44,7 @@ export default {
             return this.hasCall ?
                 'call' : 'not-call';
         },
-        hasPut() { return this.hasPutOnCountry(this.country)},
+        hasPut() { return this.hasPutOnCountry(this.country);},
         downClass () {
             return this.hasPut ?
                 'put' : '';
@@ -59,7 +68,7 @@ export default {
             this[PLACE_PUT](this.country);
         }
     }
-}
+};
 </script>
 
 <style lang="sass" scoped>

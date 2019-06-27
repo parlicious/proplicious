@@ -1,22 +1,33 @@
 <template>
-    <div :class=letter>
-        <h3>Pool {{letter}}</h3>
+    <div :class="letter">
+        <h3>Pool {{ letter }}</h3>
         <ul>
-            <country-list-item v-for="country in countries" :key="country.name" :country="country" :pool="letter" />
+            <country-list-item
+                v-for="country in countries"
+                :key="country.name"
+                :country="country"
+                :pool="letter"
+            />
         </ul>
     </div>
 </template>
 <script>
 import CountryListItem from './CountryListItem.vue';
 export default {
-    props : {
-        countries : Array,
-        letter    : String
-    },
     components : {
         CountryListItem
+    },
+    props : {
+        countries : {
+            type :Array,
+            default : () => []
+        },
+        letter : {
+            type: String,
+            default: 'A'
+        }
     }
-}
+};
 </script>
 <style lang="sass" scoped>
     @import '../variables.scss';
@@ -31,6 +42,10 @@ export default {
         font-size: 20pt;
     }
     div {
+        max-width : 90%;
+        max-width : -webkit-calc(100% - 2em);
+        max-width : -moz-calc(100% - 2em);
+        max-width : calc(100% - 2em);
         display: inline-block;
         margin: 1em;
         background-color: $colora-desat;

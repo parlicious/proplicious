@@ -1,8 +1,11 @@
 <template>
     <li>
-        <span class="flag">{{country.flag}}</span>
-        <span class="name">{{country.name}}</span>
-        <span class="ew" :class="pool">{{country.ew}}
+        <span class="flag">{{ country.flag }}</span>
+        <span class="name">{{ country.name }}</span>
+        <span
+            class="ew"
+            :class="pool"
+        >{{ country.ew }}
             <country-selector :country="country" />
         </span>
     </li>
@@ -11,14 +14,20 @@
 <script>
 import CountrySelector from './CountrySelector.vue';
 export default {
-    props : {
-        country : Object,
-        pool    : String
-    },
     components : {
         CountrySelector
+    },
+    props : {
+        country : {
+            type : Object,
+            default : () => {}
+        },
+        pool : {
+            type : String,
+            default : 'A'
+        }
     }
-}
+};
 </script>
 <style lang="sass" scoped>
 @import '../variables.scss';

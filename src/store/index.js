@@ -32,6 +32,8 @@ export default new Vuex.Store({
     },
     getters : {
         hasCallOnCountry : (state) => (country) => state.calls.has(country.name),
-        hasPutOnCountry : (state) => (country) => state.puts.has(country.name)
+        hasPutOnCountry : (state) => (country) => state.puts.has(country.name),
+        callCount : (state) => state.calls.size,
+        putCount : (state) => state.puts.size
     }
 });
