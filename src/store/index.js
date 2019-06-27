@@ -6,14 +6,29 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state : {
-        calls : new Set(['Ireland']),
-        puts : new Set(['Japan'])
+        calls : new Set(),
+        puts : new Set()
     },
     mutations : {
-        [PLACE_CALL] : (state, country) => state.calls.add(country.name),
-        [REMOVE_CALL] : (state, country) => state.calls.delete(country.name),
-        [PLACE_PUT] : (state, country) => state.puts.add(country.name),
-        [REMOVE_PUT] : (state, country) => state.puts.delete(country.name)
+        [PLACE_CALL] : (state, country) => {
+            state.calls = new Set([...state.calls, country.name]);
+            state.puts.delete(country.name);
+            state.puts = new Set([...state.puts]);
+        },
+        [REMOVE_CALL] : (state, country) => {
+            state.calls.delete(country.name);
+            state.calls = new Set([...state.calls]);
+        },
+        [PLACE_PUT] : (state, country) => {
+            state.puts.add(country.name);
+            state.puts = new Set(state.puts);
+            state.calls.delete(country.name);
+            state.calls = new Set(state.calls);
+        },
+        [REMOVE_PUT] : (state, country) => {
+            state.puts.delete(country.name);
+            state.puts = new Set(state.puts);
+        }
     },
     getters : {
         hasCallOnCountry : (state) => (country) => state.calls.has(country.name),
