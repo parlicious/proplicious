@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pool-wrapper">
         <pool-div 
             v-for="(countries, letter) in pools"
             :key="letter"
@@ -18,4 +18,11 @@ export default {
     data : () => { return { pools };}
 };
 </script>
+<style lang="sass" scoped>
+.pool-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content : space-around;
+}
+</style>
 

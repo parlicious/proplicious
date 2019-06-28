@@ -42,15 +42,13 @@ export default {
         font-size: 20pt;
     }
     div {
-        max-width : 90%;
-        max-width : -webkit-calc(100% - 2em);
-        max-width : -moz-calc(100% - 2em);
-        max-width : calc(100% - 2em);
+        flex : 1 0 auto;
+        max-width: 30em;
         display: inline-block;
         margin: 1em;
         background-color: $colora-desat;
         border-radius: .5em;
-        width : 20em;
+        width : 18em;
         border: 4px solid $colora;
         h3 {
             color : white;

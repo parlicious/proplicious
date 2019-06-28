@@ -48,6 +48,8 @@ export default {
         padding : .4em;
         border: none;
         cursor:pointer;
+        float: right;
+        margin : 1em;
         &[disabled] {
             background: $accent-desat;
             cursor: auto;
