@@ -41,11 +41,11 @@ export default {
         }
     }
     .submit-btn {
-        font-size : 120%;
-        border-radius : 1.2em;
+        font-size : 110%;
+        border-radius : .4em;
         background : $accent;
         color : white;
-        padding : .4em;
+        padding : .6em;
         border: none;
         cursor:pointer;
         float: right;
