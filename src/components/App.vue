@@ -2,12 +2,21 @@
     <div class="app-wrapper">
         <toolbar-comp />
         <router-view />
+        <load-screen 
+            v-if="getSubmittedPicks" 
+            :picks="getSubmittedPicks"
+        />
     </div>
 </template>
 <script>
 import ToolbarComp from './ToolbarComp.vue';
+import LoadScreen from './LoadScreen.vue';
+import { mapGetters } from 'vuex';
 export default {
-    components : { ToolbarComp }
+    components : { ToolbarComp, LoadScreen },
+    computed : {
+        ...mapGetters(['getSubmittedPicks'])
+    }
 };
 </script>
 

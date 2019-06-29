@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <div class="submit-form">
         <div class="input-wrapper">
             <input 
                 type="email" 
@@ -10,18 +10,17 @@
                 placeholder="Password"
             >
         </div>
-        <router-link
-            to="submit"
+        <button
             :disabled="invalid"
-            tag="button"
             class="submit-btn"
+            @click="submitPicks"
         >
             Submit
-        </router-link>
-    </form>
+        </button>
+    </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     computed : {
         ...mapGetters([
@@ -31,13 +30,18 @@ export default {
         invalid() {
             return this.callCount !== 3 || this.putCount !== 3;
         }
+    },
+    methods : {
+        ...mapActions([
+            'submitPicks'
+        ])
     }
 };
 </script>
 
 <style lang="sass" scoped>
 @import '../variables.scss';
-form {
+.submit-form {
     display : inline-block;
     float : right;
 
@@ -66,7 +70,7 @@ form {
     }
 }
 @media(max-width:$break) {
-    form {
+    .submit-form {
         position : fixed;
         left : 0;
         bottom : 0;
