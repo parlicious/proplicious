@@ -29,6 +29,7 @@ export default {
         hasCallOnCountry : (state) => (country) => state.calls.has(country.name),
         hasPutOnCountry : (state) => (country) => state.puts.has(country.name),
         callCount : (state) => state.calls.size,
-        putCount : (state) => state.puts.size
+        putCount : (state) => state.puts.size,
+        picks : ({calls, puts}) => { return { calls: [...calls], puts: [...puts] }; }
     }
 };

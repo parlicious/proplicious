@@ -6,53 +6,24 @@
                 <img src="../../static/img/rwc2019-logo-text-black.png">
             </div>
         </router-link>
-        <router-link
-            to="submit"
-            :disabled="invalid"
-            tag="button"
-            class="submit-btn"
-        >
-            Submit
-        </router-link>
+        <submission-form />
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import SubmissionForm from './SubmissionForm.vue';
 export default {
-    computed : {
-        ...mapGetters([
-            'callCount',
-            'putCount'
-        ]),
-        invalid() {
-            return this.callCount !== 3 || this.putCount !== 3;
-        }
+    components : {
+        SubmissionForm
     }
 };
 </script>
 
 <style lang="sass" scoped>
-    @import '../variables.scss';
-    .rwc-pics {
-        width : 80px;
-        display : inline-block;
-        img {
-            width: 100%;
-        }
+.rwc-pics {
+    width : 80px;
+    display : inline-block;
+    img {
+        width: 100%;
     }
-    .submit-btn {
-        font-size : 110%;
-        border-radius : .4em;
-        background : $accent;
-        color : white;
-        padding : .6em;
-        border: none;
-        cursor:pointer;
-        float: right;
-        margin : 1em;
-        &[disabled] {
-            background: $accent-desat;
-            cursor: auto;
-        }
-    }
+}
 </style>
