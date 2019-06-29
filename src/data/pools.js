@@ -22,8 +22,8 @@ export default {
         countries.USA
     ],
     D : [
-        countries.Australia,
         countries.Wales,
+        countries.Australia,
         countries.Fiji,
         countries.Georgia,
         countries.Uruguay

@@ -1,7 +1,7 @@
 <template>
     <h1 
         class="flag-list" 
-        :positive="positive"
+        :class="extraClass"
     >
         <span 
             v-for="(flag, index) in flags" 
@@ -28,6 +28,9 @@ export default {
     computed : {
         flags() {
             return this.names.map(name => countries[name].flag);
+        },
+        extraClass() {
+            return this.positive ? 'positive' : 'negative';
         }
     }
 };
@@ -36,7 +39,7 @@ export default {
 
     @keyframes slide {
         0% {
-            transform : translateX(200px) rotate(25deg);
+            transform : translateX(200px) rotate(25deg) translateY(-5px);
         }
         40% {
             transform : translateX(-20px);
@@ -45,7 +48,7 @@ export default {
             transform : translateX(20px);
         }
         100% {
-            transform : translateX(-200px) rotate(25deg);
+            transform : translateX(-200px) rotate(25deg) translateY(-5px);
         }
         0%, 100% {
             opacity : 1;
@@ -56,13 +59,15 @@ export default {
         max-width : 200px;
         border-radius : 10px;
         overflow: hidden;
-        &[positive="true"] {
-            background : rgba(limeGreen, .5);
-            border : 5px solid limeGreen;
+        border : 3px solid black;
+        text-align : center;
+        &.positive {
+            background : lighten(limeGreen, 40%);
+            border-color : limeGreen;
         }
-        &[positive="false"] {
-            background : rgba(red, .5);
-            border : 5px solid red;
+        &.negative {
+            background : lighten(red, 40%);
+            border-color : red;
         }
         .flag {
             display : inline-block;

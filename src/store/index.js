@@ -24,7 +24,7 @@ export default new Vuex.Store({
             commit('setSubmittedPicks', getters.picks);
             //TODO: Donnie magic to persist pick
             setTimeout(() => {
-                commit('setSubmittedPicks', false);
+                commit('setSubmittedPicks', null);
             }, 6000);
         }
     }
