@@ -2,12 +2,15 @@
     <div class="submit-form">
         <div class="input-wrapper">
             <input 
+                v-model="email"
                 type="email" 
                 placeholder="Email"
             >
             <input 
                 type="password" 
                 placeholder="Password"
+                minlength="8"
+                :value="password"
             >
         </div>
         <button
@@ -20,18 +23,32 @@
     </div>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapMutations } from 'vuex';
+import { SET_EMAIL, SET_PASSWORD } from '../store/mutationTypes';
 export default {
     computed : {
         ...mapGetters([
             'callCount',
-            'putCount'
+            'putCount',
+            'getUser'
         ]),
+        email : {
+            get() { return this.getUser.email; },
+            set(val){ this[SET_EMAIL](val); }
+        },
+        password:{
+            get() { return this.getUser.password; },
+            set(val) { this[SET_PASSWORD](val); }
+        },
         invalid() {
             return this.callCount !== 3 || this.putCount !== 3;
         }
     },
     methods : {
+        ...mapMutations([
+            SET_EMAIL,
+            SET_PASSWORD
+        ]),
         ...mapActions([
             'submitPicks'
         ])
