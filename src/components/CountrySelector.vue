@@ -75,11 +75,15 @@ export default {
 @import '../glyphs/css/glyphs.css';
 
 @keyframes bounce {
+    0% {
+        color : white
+    }
     25% {
         transform : translateY(-10px) scale(1.05);
     }
     50% {
         transform : translateY(0) scale(1);
+        color : limegreen
     }
     75% {
         transform : translateY(-5px) scale(1.05);
@@ -87,11 +91,15 @@ export default {
 }
 
 @keyframes drop {
+    0% {
+        color : white
+    }
     25% {
         transform : translateY(10px) scale(1.1);
     }
     50% {
         transform : translateY(0) scale(1);
+        color : red;
     }
     75% {
         transform : translateY(5px) scale(1.1);
@@ -110,6 +118,7 @@ div.selector-wrapper {
     .selector {
         position : relative;
         line-height : .5em;
+        transition: color .25s;
         &.call {
             color : limegreen;
             animation: bounce .5s 1 ease-in-out;
