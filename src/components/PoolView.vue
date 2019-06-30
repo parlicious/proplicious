@@ -1,9 +1,9 @@
 <template>
     <div>
         <p>
-            Select <span class="positive">3 nations</span> that you belive will win
-            more games than the listed number and <span class="negative">3 nations</span>
-            that you believe will win fewer games than the listed number.  Draws are rare
+            Select <span class="heavy">{{ numCallsRequired }} nations</span> that you belive will win
+            <span class="heavy">more</span> games than the listed number and <span class="heavy">{{ numPutsRequired }} nations</span>
+            that you believe will win <span class="heavy">fewer</span> games than the listed number.  Draws are rare
             in rugby but can happen during the group stage, in that case, each team will be
             award half of a win.
         </p>
@@ -20,11 +20,18 @@
 <script>
 import PoolDiv from './PoolDiv.vue';
 import pools from '../data/pools';
+import { numCallsRequired, numPutsRequired } from '../data/settings';
 export default {
     components : {
         PoolDiv
     },
-    data : () => { return { pools };}
+    data : () => { 
+        return { 
+            pools,
+            numCallsRequired,
+            numPutsRequired
+        };
+    }
 };
 </script>
 <style lang="sass" scoped>
@@ -35,6 +42,11 @@ p {
     margin : 1em;
     padding : 1em;
     border-radius : .3em;
+}
+span {
+    &.heavy {
+        font-weight: bold;
+    }
 }
 .pool-wrapper {
     display: flex;

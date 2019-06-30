@@ -5,18 +5,19 @@
                 v-model="email"
                 type="email" 
                 placeholder="Email"
+                @keyup.enter="submitAttempt"
             >
             <input 
+                v-model="password"
                 type="password" 
                 placeholder="Password"
                 minlength="8"
-                :value="password"
+                @keyup.enter="submitAttempt"
             >
         </div>
         <button
-            :disabled="invalid"
             class="submit-btn"
-            @click="submitPicks"
+            @click="submitAttempt"
         >
             Submit
         </button>
@@ -24,7 +25,9 @@
 </template>
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
-import { SET_EMAIL, SET_PASSWORD } from '../store/mutationTypes';
+import { SET_EMAIL, SET_PASSWORD, SUBMIT_ERRORS } from '../store/mutationTypes';
+import { numCallsRequired, numPutsRequired } from '../data/settings';
+const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 export default {
     computed : {
         ...mapGetters([
@@ -47,11 +50,41 @@ export default {
     methods : {
         ...mapMutations([
             SET_EMAIL,
-            SET_PASSWORD
+            SET_PASSWORD,
+            SUBMIT_ERRORS
         ]),
         ...mapActions([
             'submitPicks'
-        ])
+        ]),
+        submitAttempt(){
+            const errors = [];
+            if(!emailRegex.test(this.email)) {
+                errors.push('Enter a valid email address');
+            }
+            if(!this.password || this.password.length < 8) {
+                errors.push('Enter a password of at least 8 characters');
+            }
+            if(this.callCount > numCallsRequired) {
+                errors.push(`You have selected too many nations to overpreform.  Pick exactly ${numCallsRequired} to do better than the listed value.`);
+            }
+            if(this.callCount < numCallsRequired) {
+                errors.push(`You have not selected enough nations to overpreform.  Select exactly ${numCallsRequired} nations who you think will do better than the listed value.`);
+            }
+            if(this.putCount > numPutsRequired) {
+                errors.push(`You have selected too many nations to underpreform.  Pick exactly ${numPutsRequired} to do worse than the listed value.`);
+            }
+            if(this.putCount < numPutsRequired) {
+                errors.push(`You have not selected enough nations to underpreform.  Select exactly ${numPutsRequired} nations who you think will do worse than the listed value.`);
+            }
+
+            if(errors.length) {
+                this[SUBMIT_ERRORS](errors);
+            }
+
+            else {
+                this.submitPicks();
+            }
+        }
     }
 };
 </script>

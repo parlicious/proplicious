@@ -41,11 +41,11 @@ export default {
         0% {
             transform : translateX(200px) rotate(25deg) translateY(-5px);
         }
-        40% {
-            transform : translateX(-20px);
+        40%, 60% {
+            transform : translateX(-10px);
         }
         60% {
-            transform : translateX(20px);
+            transform : translateX(10px);
         }
         100% {
             transform : translateX(-200px) rotate(25deg) translateY(-5px);

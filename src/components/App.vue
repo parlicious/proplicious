@@ -2,20 +2,26 @@
     <div class="app-wrapper">
         <toolbar-comp />
         <router-view />
-        <load-screen 
-            v-if="getSubmittedPicks" 
-            :picks="getSubmittedPicks"
+        <transition name="fade">
+            <load-screen 
+                v-if="getSubmittedPicks" 
+                :picks="getSubmittedPicks"
+            />
+        </transition>
+        <message-container 
+            :messages="messages" 
         />
     </div>
 </template>
 <script>
 import ToolbarComp from './ToolbarComp.vue';
 import LoadScreen from './LoadScreen.vue';
+import MessageContainer from './MessageContainer.vue';
 import { mapGetters } from 'vuex';
 export default {
-    components : { ToolbarComp, LoadScreen },
+    components : { ToolbarComp, LoadScreen, MessageContainer },
     computed : {
-        ...mapGetters(['getSubmittedPicks'])
+        ...mapGetters(['getSubmittedPicks', 'messages'])
     }
 };
 </script>
@@ -26,6 +32,13 @@ body {
     font-family: sans-serif;
     font-size: 120%;
     background: $bg;
+
+    .fade-enter-active, .fade-leave-active {
+        transition: all .5s;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
 }
 </style>
 <style lang="sass" scoped>

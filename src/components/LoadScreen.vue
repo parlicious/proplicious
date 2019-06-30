@@ -26,12 +26,10 @@ export default {
 @import '../variables.scss';
 .load-screen {
     position : fixed;
-    top : .5em;
-    left : .5em;
-    right : .5em;
-    bottom : .5em;
-    border : 5px solid $accent;
-    border-radius : 5px;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom : 0;
     background : rgba($accent-desat, .6);
     padding : 2em;
 }
