@@ -19,4 +19,6 @@ prodConfig.devServer = {
     }
 };
 
+prodConfig.devtool = 'cheap-module-eval-source-map';
+
 module.exports = prodConfig;
