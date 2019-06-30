@@ -7,7 +7,9 @@
     "lint": "esw --ext .js,.vue",
     "lint:watch": "npm run lint -- --watch",
     "serve": "webpack-dev-server --config webpack.config.dev.js",
-    "dev": "npm-run-all --parallel lint:watch serve"
+    "dev": "npm-run-all --parallel lint:watch serve",
+    "prebuild": "npm run lint",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
