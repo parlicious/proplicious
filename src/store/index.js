@@ -22,13 +22,13 @@ export default new Vuex.Store({
         messageModule
     },
     actions : {
-        [SUBMIT_PICKS] : async function({commit, getters}) {
+        [SUBMIT_PICKS] : async function({commit, getters, dispatch}) {
             commit('setSubmittedPicks', getters.picks);
             //TODO: Donnie magic to persist pick
             setTimeout(() => {
                 commit('setSubmittedPicks', null);
-                commit(SUCCESS_MESSAGE, 'Picks Submitted');
-            }, 6000);
+                dispatch(SUCCESS_MESSAGE, 'Picks Submitted');
+            }, 6000); // This is so you can see the fun transition
         }
     }
 });

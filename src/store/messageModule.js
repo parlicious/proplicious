@@ -1,10 +1,10 @@
 import { SUBMIT_ERRORS, SUCCESS_MESSAGE } from './actionTypes';
 import { REMOVE_MESSAGE } from './mutationTypes';
-import { promisify } from 'util';
 import Vue from 'vue';
 import * as uuid from 'uuid/v4';
 export const messageTime = 3000;
-const delay = promisify((time, callback) => setTimeout(callback, time));
+import { delay } from '../utils';
+
 export default {
     state : {
         messages : {}

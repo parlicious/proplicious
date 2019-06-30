@@ -27,9 +27,9 @@ export default {
 .message-container {
     position : fixed;
     top : 0;
-    right : 0;
+    left : 0;
     max-width : 100%;
-    width : 400px;
+    width : 20em;
     padding : .5em;
 }
 </style>

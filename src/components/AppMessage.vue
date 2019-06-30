@@ -2,11 +2,14 @@
     <p 
         class="app-message" 
         :class="extraClass"
+        @click="remove"
     >
         {{ message.text }}
     </p>
 </template>
 <script>
+import { REMOVE_MESSAGE } from '../store/mutationTypes';
+import { mapMutations } from 'vuex';
 export default {
     props : {
         message : {
@@ -25,6 +28,12 @@ export default {
             }  
             return classes;
         }
+    },
+    methods : {
+        ...mapMutations([REMOVE_MESSAGE]),
+        remove() {
+            this[REMOVE_MESSAGE](this.message.key);
+        }
     }
 };
 </script>
@@ -35,6 +44,9 @@ export default {
     border: 3px solid black;
     border-radius : 5px;
     padding : .5em;
+    cursor : pointer;
+    max-width : 100%;
+    width : 19em;
     &.error {
         background : lighten(red, 45%);
         border-color : red;
@@ -48,6 +60,9 @@ export default {
 
     &.fade-enter, .fade-leave-to {
         transform: translateY(-15px);
+    }
+    &.fade-leave-active {
+        position: absolute;
     }
 }
 </style>

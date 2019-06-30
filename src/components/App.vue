@@ -33,7 +33,7 @@ body {
     font-size: 120%;
     background: $bg;
 
-    .fade-enter-active, .fade-leave-active {
+    .fade-enter-active, .fade-leave-active, .fade-move {
         transition: all .5s;
     }
     .fade-enter, .fade-leave-to {
