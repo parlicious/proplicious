@@ -25,7 +25,8 @@
 </template>
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
-import { SET_EMAIL, SET_PASSWORD, SUBMIT_ERRORS } from '../store/mutationTypes';
+import { SET_EMAIL, SET_PASSWORD } from '../store/mutationTypes';
+import { SUBMIT_ERRORS, SUBMIT_PICKS } from '../store/actionTypes';
 import { numCallsRequired, numPutsRequired } from '../data/settings';
 const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 export default {
@@ -54,7 +55,8 @@ export default {
             SUBMIT_ERRORS
         ]),
         ...mapActions([
-            'submitPicks'
+            SUBMIT_ERRORS,
+            SUBMIT_PICKS
         ]),
         submitAttempt(){
             const errors = [];
@@ -82,7 +84,7 @@ export default {
             }
 
             else {
-                this.submitPicks();
+                this[SUBMIT_PICKS]();
             }
         }
     }

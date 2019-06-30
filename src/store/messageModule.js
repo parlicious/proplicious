@@ -1,37 +1,52 @@
-import { SUBMIT_ERRORS, SUCCESS_MESSAGE } from './mutationTypes';
+import { SUBMIT_ERRORS, SUCCESS_MESSAGE } from './actionTypes';
+import { REMOVE_MESSAGE } from './mutationTypes';
+import { promisify } from 'util';
+import Vue from 'vue';
+import * as uuid from 'uuid/v4';
 export const messageTime = 3000;
+const delay = promisify((time, callback) => setTimeout(callback, time));
 export default {
     state : {
-        messages : [],
-        totalMessages : 0
+        messages : {}
     },
     mutations : {
-        [SUBMIT_ERRORS](state, errorArray) {
-            if(!errorArray || !errorArray.length) {
-                return;
-            }
-            errorArray.forEach((message, index) => {
-                state.messages.push({
-                    message,
-                    error : true,
-                    key : index + state.totalMessages
-                });
-            });
-            state.totalMessages += errorArray.length;
-            setTimeout(() => state.messages = state.messages.slice(errorArray.length),
-            messageTime);
+        localSubmitMessage(state, message) {
+            Vue.set(state.messages, message.key, message);
         },
-        [SUCCESS_MESSAGE](state, message) {
-            state.totalMessages += 1;
-            state.messages.push({
-                message,
-                key : state.totalMessages,
-                success : true
-            });
-            setTimeout(() => state.messages = state.messages.shift(), messageTime);
+        [REMOVE_MESSAGE](state, key) {
+            Vue.delete(state.messages, key);
         }
     },
     getters : {
-        messages : ({messages}) => messages
+        messages : ({messages}) => Object.values(messages)
+    },
+    actions : {
+        [SUBMIT_ERRORS]: async function({commit}, errorTextArray) {
+            const errorMessages = errorTextArray.map((text) => {
+                return {
+                    text,
+                    error : true,
+                    key : uuid()
+
+                };
+            });
+            
+            errorMessages.forEach((error) => commit('localSubmitMessage', error));
+
+            await delay(messageTime);
+
+            errorMessages.forEach((error) => commit(REMOVE_MESSAGE, error.key));
+            
+        },
+        [SUCCESS_MESSAGE]: async function({commit}, text) {
+            const message = {
+                text,
+                success: true,
+                key : uuid()
+            };
+            commit('localSubmitMessage', message);
+            await delay(messageTime);
+            commit(REMOVE_MESSAGE, message.key);
+        }
     }
 };

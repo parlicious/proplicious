@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import picksModule from './picksModule';
 import userModule from './userModule';
 import messageModule from './messageModule';
-import {SUCCESS_MESSAGE} from './mutationTypes';
+import {SUBMIT_PICKS, SUCCESS_MESSAGE} from './actionTypes';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         messageModule
     },
     actions : {
-        submitPicks : async function({commit, getters}) {
+        [SUBMIT_PICKS] : async function({commit, getters}) {
             commit('setSubmittedPicks', getters.picks);
             //TODO: Donnie magic to persist pick
             setTimeout(() => {

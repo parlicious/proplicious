@@ -3,7 +3,7 @@
         class="app-message" 
         :class="extraClass"
     >
-        {{ message.message }}
+        {{ message.text }}
     </p>
 </template>
 <script>
