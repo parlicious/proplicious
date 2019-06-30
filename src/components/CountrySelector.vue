@@ -73,6 +73,31 @@ export default {
 
 <style lang="sass" scoped>
 @import '../glyphs/css/glyphs.css';
+
+@keyframes bounce {
+    25% {
+        transform : translateY(-10px) scale(1.05);
+    }
+    50% {
+        transform : translateY(0) scale(1);
+    }
+    75% {
+        transform : translateY(-5px) scale(1.05);
+    }
+}
+
+@keyframes drop {
+    25% {
+        transform : translateY(10px) scale(1.1);
+    }
+    50% {
+        transform : translateY(0) scale(1);
+    }
+    75% {
+        transform : translateY(5px) scale(1.1);
+    }
+}
+
 div.selector-wrapper {
     -webkit-user-select: none; /* Safari 3.1+ */
     -moz-user-select: none; /* Firefox 2+ */
@@ -87,9 +112,11 @@ div.selector-wrapper {
         line-height : .5em;
         &.call {
             color : limegreen;
+            animation: bounce .5s 1 ease-in-out;
         }
         &.put {
             color : red;
+            animation: drop .5s 1 ease-in-out;
         }
         .click-holder {
             user-select : none;
