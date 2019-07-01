@@ -120,13 +120,25 @@ div.selector-wrapper {
         line-height : .5em;
         transition: color .25s;
         color : white;
+        &:active{
+            color : lightgrey;
+            transition : none;
+        }
         &.call {
             color : limegreen;
             animation: bounce .5s 1 ease-in-out;
+            &:active {
+                color : darken(limegreen, 15%);
+                transition: none;
+            }
         }
         &.put {
             color : red;
             animation: drop .5s 1 ease-in-out;
+            &:active {
+                color: darken(red, 15%);
+                transition: none;
+            }
         }
         .click-holder {
             user-select : none;

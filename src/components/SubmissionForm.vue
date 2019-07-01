@@ -115,9 +115,8 @@ export default {
         border: none;
         cursor:pointer;
         margin : 1em 1em;
-        &[disabled] {
-            background: $accent-desat;
-            cursor: auto;
+        &:active {
+            background : darken($accent, 15%);
         }
     }
 }
