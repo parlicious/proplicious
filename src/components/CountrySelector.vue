@@ -23,31 +23,31 @@
     </div>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapMutations } from 'vuex';
 import { PLACE_CALL, REMOVE_CALL, PLACE_PUT, REMOVE_PUT } from '../store/mutationTypes';
 export default {
     props : {
         country : {
             type : Object,
             default : () => {}
+        },
+        hasCall : {
+            type : Boolean,
+            required: true
+        },
+        hasPut : {
+            type: Boolean,
+            required: true
         }
     },
-    computed : {
-        ...mapGetters([
-            'hasCallOnCountry',
-            'hasPutOnCountry'
-        ]),
-        hasCall() { 
-            return this.hasCallOnCountry(this.country);
+    computed: {
+        downClass () {
+            return this.hasPut ?
+                'put' : '';
         },
         upClass () {
             return this.hasCall ?
                 'call' : 'not-call';
-        },
-        hasPut() { return this.hasPutOnCountry(this.country);},
-        downClass () {
-            return this.hasPut ?
-                'put' : '';
         }
     },
     methods : {
@@ -119,6 +119,7 @@ div.selector-wrapper {
         position : relative;
         line-height : .5em;
         transition: color .25s;
+        color : white;
         &.call {
             color : limegreen;
             animation: bounce .5s 1 ease-in-out;

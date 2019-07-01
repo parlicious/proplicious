@@ -4,15 +4,20 @@
         <span class="name">{{ country.name }}</span>
         <span
             class="ew"
-            :class="pool"
+            :class="extraClass"
         >{{ country.ew }}
-            <country-selector :country="country" />
+            <country-selector 
+                :country="country"
+                :has-call="hasCall"
+                :has-put="hasPut"
+            />
         </span>
     </li>
 </template>
 
 <script>
 import CountrySelector from './CountrySelector.vue';
+import { mapGetters } from 'vuex';
 export default {
     components : {
         CountrySelector
@@ -25,6 +30,27 @@ export default {
         pool : {
             type : String,
             default : 'A'
+        }
+    },
+    computed : {
+        ...mapGetters([
+            'hasCallOnCountry',
+            'hasPutOnCountry'
+        ]),
+        hasCall() { 
+            return this.hasCallOnCountry(this.country);
+        },
+        hasPut() { return this.hasPutOnCountry(this.country);},
+        extraClass() {
+            const classNames = [this.pool];
+            if(this.hasCall) {
+                classNames.push('call');
+            }
+            if(this.hasPut) {
+                classNames.push('put');
+            }
+
+            return classNames;
         }
     }
 };
@@ -54,6 +80,16 @@ li {
     &.D {
         background: $colord;
     }
+}
+
+.call {
+    color: limegreen;
+    transition: color .3s;
+}
+
+.put {
+    color : red;
+    transition: color .3s;
 }
 
 </style>
