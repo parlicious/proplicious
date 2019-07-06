@@ -3,7 +3,8 @@ import Vuex from 'vuex';
 import picksModule from './picksModule';
 import userModule from './userModule';
 import messageModule from './messageModule';
-import {SUBMIT_PICKS, SUCCESS_MESSAGE} from './actionTypes';
+import {SUBMIT_PICKS, SUCCESS_MESSAGE, SUBMIT_ERRORS} from './actionTypes';
+import { submitPicks } from '../utils';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -22,13 +23,12 @@ export default new Vuex.Store({
         messageModule
     },
     actions : {
-        [SUBMIT_PICKS] : async function({commit, getters, dispatch}) {
+        [SUBMIT_PICKS] : function({commit, getters, dispatch}) {
             commit('setSubmittedPicks', getters.picks);
-            //TODO: Donnie magic to persist pick
-            setTimeout(() => {
-                commit('setSubmittedPicks', null);
-                dispatch(SUCCESS_MESSAGE, 'Picks Submitted');
-            }, 6000); // This is so you can see the fun transition
+            submitPicks(getters.picks, getters.getUser)
+                .then(successMessage => dispatch(SUCCESS_MESSAGE, successMessage))
+                .catch(errorMessage => dispatch(SUBMIT_ERRORS, [errorMessage]))
+                .then(() => commit('setSubmittedPicks', null));
         }
     }
 });

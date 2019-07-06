@@ -21,7 +21,7 @@ export default {
         messages : ({messages}) => Object.values(messages)
     },
     actions : {
-        [SUBMIT_ERRORS]: async function({commit}, errorTextArray) {
+        [SUBMIT_ERRORS]: function({commit}, errorTextArray) {
             const errorMessages = errorTextArray.map((text) => {
                 return {
                     text,
@@ -33,20 +33,19 @@ export default {
             
             errorMessages.forEach((error) => commit('localSubmitMessage', error));
 
-            await delay(messageTime);
-
-            errorMessages.forEach((error) => commit(REMOVE_MESSAGE, error.key));
+            delay(messageTime)
+                .then(() => errorMessages.forEach((error) => commit(REMOVE_MESSAGE, error.key)));
             
         },
-        [SUCCESS_MESSAGE]: async function({commit}, text) {
+        [SUCCESS_MESSAGE]: function({commit}, text) {
             const message = {
                 text,
                 success: true,
                 key : uuid()
             };
             commit('localSubmitMessage', message);
-            await delay(messageTime);
-            commit(REMOVE_MESSAGE, message.key);
+            delay(messageTime)
+                .then(() => commit(REMOVE_MESSAGE, message.key));
         }
     }
 };
