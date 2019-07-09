@@ -73,6 +73,7 @@ export default {
 
 <style lang="sass" scoped>
 @import '../glyphs/css/glyphs.css';
+@import '../variables.scss';
 
 @keyframes bounce {
     0% {
@@ -125,18 +126,18 @@ div.selector-wrapper {
             transition : none;
         }
         &.call {
-            color : limegreen;
+            color : $positive;
             animation: bounce .5s 1 ease-in-out;
             &:active {
-                color : darken(limegreen, 15%);
+                color : $positive-dark;
                 transition: none;
             }
         }
         &.put {
-            color : red;
+            color : $negative;
             animation: drop .5s 1 ease-in-out;
             &:active {
-                color: darken(red, 15%);
+                color: $negative-dark;
                 transition: none;
             }
         }

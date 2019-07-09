@@ -12,3 +12,13 @@ $colord-desat: hsla(5%, 26%, 62%, 1);
 $accent-desat: hsla(204%, 30%, 85%, 1);
 
 $break: 500px;
+
+$positive : limegreen;
+$positive-dark : darken($positive, 15%);
+$positive-light : lighten($positive, 30%);
+$negative : red;
+$negative-dark : darken($negative, 15%);
+$negative-light : lighten($negative, 30%);
+$neutral : goldenrod;
+$neutral-dark : darken($neutral, 15%);
+$neutral-light : lighten($neutral, 30%);

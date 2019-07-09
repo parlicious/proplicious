@@ -3,14 +3,19 @@ import { mapValues, map, countBy, sum, filter } from 'lodash';
 import countries from '../data/countries';
 import { REFRESH_RESULTS } from "./actionTypes";
 import axios from 'axios';
+import { simulateResults } from '../test/data';
+import { delay } from '../utils';
 function determineResultForTeam(match, teamName, opponent) {
     const teamIsA = match.teams[0].name === teamName;
     let result;
     if(match.status === 'U' || match.status === 'D') {
         result = match.status;
     }
-    else if(match.status === 'A' || match.status === 'B') {
-        result = teamIsA && match.status === 'A' ? 'W' : 'L';
+    else if(match.status === 'A') {
+        result = teamIsA ? 'W' : 'L';
+    }
+    else if(match.status === 'B') {
+        result = !teamIsA ? 'W' : 'L';
     }
     else {
         const teamScore = teamIsA ? match.scores[0] : match.scores[1];
@@ -32,6 +37,17 @@ function determineResultForTeam(match, teamName, opponent) {
         teamName,
         opponent
     };
+}
+function getResults(resultsUrl, fake) {
+    return fake ? getFakeInfo() : getRealInfo(resultsUrl);
+}
+async function getFakeInfo() {
+    await delay(1500);
+    return simulateResults();
+}
+async function getRealInfo(resultsUrl) {
+    const { data : eventInfo } = await axios.get(resultsUrl);
+    return eventInfo;
 }
 export default function(eventId) {
     const resultsUrl = `https://cmsapi.pulselive.com/rugby/event/${eventId}/schedule?language=en`;
@@ -57,6 +73,7 @@ export default function(eventId) {
 
                 Object.values(matchesByTeam).forEach(info => {
                     info.results = countBy(info.matches, 'result');
+                    info.results.W = info.results.W || 0;
                     info.results.possibleWins = sum(filter(info.results, (count, status) => status !== 'D' && status !== 'L')) + ((info.results.D || 0) / 2);
                 });
 
@@ -69,7 +86,7 @@ export default function(eventId) {
         },
         actions : {
             [REFRESH_RESULTS] : async function({commit}) {
-                const { data : eventInfo } = await axios.get(resultsUrl);
+                const eventInfo = await getResults(resultsUrl, true);
                 commit(SET_MATCHES, eventInfo.matches);
             }
         }
