@@ -1,5 +1,8 @@
 <template>
-    <div class="submit-form">
+    <form 
+        class="submit-form"
+        @submit.prevent="submitAttempt"
+    >
         <div class="input-wrapper">
             <input 
                 v-model="email"
@@ -17,11 +20,11 @@
         </div>
         <button
             class="submit-btn"
-            @click="submitAttempt"
+            type="submit"
         >
             Submit
         </button>
-    </div>
+    </form>
 </template>
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
@@ -95,7 +98,8 @@ export default {
 @import '../variables.scss';
 .submit-form {
     display : inline-block;
-    float : right;
+    position : absolute;
+    right : 0;
 
     .input-wrapper {
         display : inline-block;

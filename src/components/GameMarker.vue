@@ -38,7 +38,7 @@ export default {
     .game-marker {
         display : inline-block;
         font-size : 60%;
-        margin : 0 1em;
+        margin : 1em;
         padding : .5em;
         border-radius : .5em;
         width : 150px;

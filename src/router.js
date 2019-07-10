@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 export default new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/', component: PoolView },
-        { path: '/results', component: ResultsView }
+        { path: '/', component: PoolView, name: 'picks' },
+        { path: '/results', component: ResultsView, name: 'results' }
     ]
 });
