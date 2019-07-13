@@ -74,6 +74,8 @@ export default function(eventId) {
                 Object.values(matchesByTeam).forEach(info => {
                     info.results = countBy(info.matches, 'result');
                     info.results.W = info.results.W || 0;
+                    info.results.L = info.results.L || 0;
+                    info.results.D = info.results.D || 0;
                     info.results.possibleWins = sum(filter(info.results, (count, status) => status !== 'D' && status !== 'L')) + ((info.results.D || 0) / 2);
                 });
 

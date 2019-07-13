@@ -1,15 +1,27 @@
 <template>
     <div>
         <h3 class="team-name">
-            {{ matchInfo.name }}
+            {{ matchInfo.name }} 
+            {{ matchInfo.results.W }}-{{ matchInfo.results.L }}-{{ matchInfo.results.D }}
         </h3>
-        <div class="marker-wrapper">
+        <button
+            class="show-fixtures-btn"
+            @click="toggleFixtures"
+        >
+            {{ showOrHide }} Fixtures
+        </button>
+        <transition-group
+            v-if="showFixtures"
+            class="marker-wrapper"
+            tag="div"
+            name="fade"
+        >
             <GameMarker
                 v-for="match in matchInfo.matches"
                 :key="match.match.matchId"
                 :match="match"
             />
-        </div>
+        </transition-group>
     </div>
 </template>
 
@@ -24,6 +36,15 @@ export default {
             type : Object,
             required : true
         }
+    },
+    data : () => ({showFixtures : false}),
+    computed : {
+        showOrHide() {
+            return this.showFixtures ? 'Hide' : 'Show';
+        }
+    },
+    methods : {
+        toggleFixtures() { this.showFixtures = !this.showFixtures; }
     }
 };
 </script>
