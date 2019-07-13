@@ -1,7 +1,12 @@
 <template>
     <div class="app-wrapper">
         <toolbar-comp />
-        <router-view />
+        <transition
+            name="fade"
+            mode="out-in"
+        >
+            <router-view />
+        </transition>
         <transition name="fade">
             <load-screen 
                 v-if="getSubmittedPicks" 

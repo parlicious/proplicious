@@ -22,7 +22,9 @@
         >
             Results
         </router-link>
-        <submission-form v-if="onPicks" />
+        <transition name="fade">
+            <submission-form v-if="onPicks" />
+        </transition>
     </div>
 </template>
 <script>
@@ -89,5 +91,10 @@ export default {
 .toolbar {
     position: relative;
     border-bottom : 1px solid black;
+    .submit-form {
+        &.fade-enter-active {
+            transition-delay: .5s;
+        }
+    }
 }
 </style>
