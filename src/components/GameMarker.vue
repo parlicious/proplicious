@@ -3,7 +3,13 @@
         class="game-marker" 
         :result="match.result"
     >
-        <p>VS {{ match.opponent }}</p>
+        <p>
+            <span 
+                v-if="matchComplete"
+                class="result"
+            >{{ match.result }} 
+            </span>vs {{ match.opponent }}
+        </p>
         <p>{{ matchTime }}</p>
     </div>
 </template>
@@ -20,6 +26,11 @@ export default {
     computed : {
         matchTime(){
             return moment(this.match.match.time.millis).format('ddd, MMM Do @ h:mm a');
+        },
+        matchComplete() {
+            return this.match.result === 'W' ||
+                this.match.result === 'L' ||
+                this.match.result === 'D';
         }
     }
 };
@@ -88,6 +99,9 @@ export default {
                 $bg 50%,
                 $neutral-light 100%
             );
+        }
+        .result {
+            font-weight : bold;
         }
     }
 </style>
