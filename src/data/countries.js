@@ -4,14 +4,14 @@ const ireland = {
     flag : '🇮🇪',
     odds : 12.5,
     rank : 3,
-    ew   : 4.33
+    ew   : 4.45
 };
 
 const scotland = {
     name : 'Scotland',
     flag : '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
     odds : 2.44,
-    ew   : 2.54,
+    ew   : 2.61,
     rank : 7
 };
 
@@ -19,7 +19,7 @@ const japan = {
     name : 'Japan',
     flag : '🇯🇵',
     odds : .332,
-    ew   : 2.11,
+    ew   : 2.13,
     rank : 11
 };
 
@@ -43,7 +43,7 @@ const nz = {
     name : 'New Zealand',
     flag : '🇳🇿',
     odds : 45.5,
-    ew   : 5.53,
+    ew   : 5.67,
     rank : 1
 };
 
@@ -51,7 +51,7 @@ const sa = {
     name : 'South Africa',
     flag : '🇿🇦',
     odds : 9.09,
-    ew   : 3.96,
+    ew   : 4.08,
     rank : 5
 };
 
@@ -83,7 +83,7 @@ const england = {
     name : 'England',
     flag : '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
     odds : 14.3,
-    ew   : 4.46,
+    ew   : 4.59,
     rank : 4
 };
 
@@ -92,14 +92,14 @@ const france = {
     flag : '🇫🇷',
     rank : 8,
     odds : 2.55,
-    ew   : 2.63
+    ew   : 2.66
 };
 
 const argentina = {
     name : 'Argentina',
     flag : '🇦🇷',
     odds : 1.96,
-    ew   : 2.4,
+    ew   : 2.42,
     rank : 10
 };
 
@@ -124,14 +124,14 @@ const australia = {
     flag : '🇦🇺',
     rank : 6,
     odds : 5.88,
-    ew   : 3.62
+    ew   : 3.72
 };
 
 const wales = {
     name : 'Wales',
     flag : '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
     odds : 11.1,
-    ew   : 4.36,
+    ew   : 4.55,
     rank : 2
 };
 

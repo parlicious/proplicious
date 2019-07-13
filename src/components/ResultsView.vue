@@ -4,13 +4,15 @@
             v-if="!matchesByTeam"
             class="load"
         >
-            Loading
+            Loading...
         </h3>
-        <results-for-country
-            v-for="matchInfo in sortedMatches"
-            :key="matchInfo.name"
-            :match-info="matchInfo"
-        />
+        <transition-group name="fade">
+            <results-for-country
+                v-for="matchInfo in sortedMatches"
+                :key="matchInfo.name"
+                :match-info="matchInfo"
+            />
+        </transition-group>
     </div>
 </template>
 
