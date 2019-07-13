@@ -76,7 +76,9 @@ export default function(eventId) {
                     info.results.W = info.results.W || 0;
                     info.results.L = info.results.L || 0;
                     info.results.D = info.results.D || 0;
-                    info.results.possibleWins = sum(filter(info.results, (count, status) => status !== 'D' && status !== 'L')) + ((info.results.D || 0) / 2);
+                    info.currentPoints = info.results.W + (info.results.D /2);
+                    info.possiblePoints = sum(filter(info.results, (count, status) => status !== 'D' && status !== 'L')) + ((info.results.D || 0) / 2);
+                    info.value = (info.currentPoints - info.ew).toFixed(2);
                 });
 
                 state.matchesByTeam = matchesByTeam;

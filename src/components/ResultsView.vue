@@ -6,7 +6,11 @@
         >
             Loading...
         </h3>
-        <transition-group name="fade">
+        <transition-group 
+            name="fade"
+            tag="div"
+            class="results-wrapper"
+        >
             <results-for-country
                 v-for="matchInfo in sortedMatches"
                 :key="matchInfo.name"
@@ -35,7 +39,7 @@ export default {
             }
             return orderBy(
                 this.matchesByTeam, 
-                ['results.W', 'results.possibleWins', 'ew'], 
+                ['currentPoints', 'possiblePoints', 'ew'], 
                 ['desc', 'desc', 'desc']);
         }
     },
@@ -49,3 +53,11 @@ export default {
     }
 };
 </script>
+<style lang="sass" scoped>
+    .results-wrapper {
+        display : flex;
+        flex-flow : row wrap;
+        justify-content : space-evenly;
+        align-items : flex-start;
+    }
+</style>

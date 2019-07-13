@@ -34,6 +34,9 @@ export default {
 <style lang="sass">
 @import '../variables.scss';
 body {
+    ul {
+        list-style-type: none;
+    }
     font-family: sans-serif;
     font-size: 120%;
     background: $bg;
@@ -43,6 +46,38 @@ body {
     }
     .fade-enter, .fade-leave-to {
         opacity: 0;
+    }
+    button {
+        display: inline-block;
+        cursor : pointer;
+        margin : 0;
+        padding : .5em;
+        font-size : 120%;
+        border-radius : 3px;
+        margin-bottom : 10px;
+        position : relative;
+        transition : background .3s ease;
+        border : none;
+        &:hover {
+            background : lightgrey;
+        }
+        &:active {
+            background : grey;
+        }
+        &:after {
+            transition: width .3s ease-out;
+            content : "";
+            width : 0%;
+            display : block;
+            margin : 0;
+            border-bottom : 1px solid black;
+        }
+        &.selected {
+            &:after {
+                width : 100%;
+                transition-delay: .5s;
+            }
+        }
     }
 }
 </style>

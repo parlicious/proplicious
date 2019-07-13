@@ -8,17 +8,17 @@
         </router-link>
         <router-link 
             to="/"
-            tag="span"
+            tag="button"
             class="nav-link"
-            :here="onPicks"
+            :class="{selected: onPicks}"
         >
             Picks
         </router-link>
         <router-link 
             to="/results"
-            tag="span"
+            tag="button"
             class="nav-link"
-            :here="onResults"
+            :class="{selected:onResults}"
         >
             Results
         </router-link>
@@ -55,39 +55,6 @@ export default {
     img {
         width: 100%;
     }
-}
-.nav-link {
-    display: inline-block;
-    cursor : pointer;
-    margin : 0;
-    padding : .5em;
-    font-size : 120%;
-    border-radius : 3px;
-    margin-bottom : 10px;
-    position : relative;
-    transition : background .3s ease;
-    &:hover {
-        background : lightgrey;
-    }
-    &:active {
-        background : grey;
-    }
-    &:after {
-        transition: width .3s ease-out;
-        content : "";
-        width : 0%;
-        display : block;
-        margin : 0;
-        border-bottom : 1px solid black;
-    }
-    &[here] {
-        &:after {
-            width : 100%;
-            transition-delay: .5s;
-        }
-    }
-    
-
 }
 .toolbar {
     position: relative;

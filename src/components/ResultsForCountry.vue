@@ -1,35 +1,54 @@
 <template>
-    <div>
-        <h3 class="team-name">
-            {{ matchInfo.name }} 
-            {{ matchInfo.results.W }}-{{ matchInfo.results.L }}-{{ matchInfo.results.D }}
-        </h3>
-        <button
-            class="show-fixtures-btn"
-            @click="toggleFixtures"
+    <div 
+        class="results-for-country"
+        :style="wrapperStyle"
+    >
+        <div
+            :style="toolbarStyle"
+            class="country-toolbar"
         >
-            {{ showOrHide }} Fixtures
-        </button>
-        <transition-group
-            v-if="showFixtures"
-            class="marker-wrapper"
-            tag="div"
-            name="fade"
-        >
-            <GameMarker
-                v-for="match in matchInfo.matches"
-                :key="match.match.matchId"
-                :match="match"
-            />
-        </transition-group>
+            <h3 class="country-name">
+                {{ matchInfo.name }}
+            </h3>
+            <button
+                :style="styleFor('summary')"
+                @click="body = 'summary'"
+            >
+                Summary
+            </button>
+            <button
+                :style="styleFor('fixtures')"
+                @click="body = 'fixtures'"
+            >
+                Fixtures
+            </button>
+        </div>
+        <div class="content">
+            <transition 
+                name="fade"
+                mode="out-in"
+            >
+                <country-summary
+                    v-if="body === 'summary'"
+                    :info="matchInfo"
+                />
+                <fixtures-container
+                    v-if="body === 'fixtures'"
+                    :matches="matchInfo.matches"
+                />
+            </transition>
+        </div>
     </div>
 </template>
 
 <script>
-import GameMarker from './GameMarker.vue';
+import FixturesContainer from './FixturesContainer.vue';
+import CountrySummary from './CountrySummary.vue';
+import countries from '../data/countries';
 export default {
     components : {
-        GameMarker
+        FixturesContainer,
+        CountrySummary
     },
     props : {
         matchInfo : {
@@ -37,30 +56,54 @@ export default {
             required : true
         }
     },
-    data : () => ({showFixtures : false}),
+    data : () => ({body : 'summary'}),
     computed : {
-        showOrHide() {
-            return this.showFixtures ? 'Hide' : 'Show';
+        country() { return countries[this.matchInfo.name];},
+        toolbarStyle() {
+            return {
+                background : this.country.primary,
+                color : this.country.complement
+            };
+        },
+        wrapperStyle() {
+            return { "border-color": this.country.primary };
         }
     },
     methods : {
-        toggleFixtures() { this.showFixtures = !this.showFixtures; }
+        styleFor(body) {
+            if(this.body === body) {
+                return {
+                    background : this.country.accent
+                };
+            }
+        }
     }
 };
 </script>
-
 <style lang="sass" scoped>
-.marker-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content : space-around;
-    max-width : 1000px;
-    margin : 0 auto;
+.results-for-country {
+    width : 22em;
+    margin : .5em;
+    border-radius: .5em;
+    border : 1px solid black;
+    display : inline-block;
+    overflow : hidden;
+    .country-toolbar {
+        padding : .5em;
+        .country-name {
+            margin: 0 0 .3em 0;
+            font-size: 140%;
 
-    .game-marker {
-        flex : 1 0 auto;
-        max-width : 200px;
+        }
+        button{
+            font-size : 1em;
+            background : none;
+            color : inherit;
+            margin : 0;
+        }
+    }
+    .content {
+        margin : .5em;
     }
 }
 </style>
-

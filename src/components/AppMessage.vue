@@ -58,7 +58,7 @@ export default {
         color : limegreen;
     }
 
-    &.fade-enter, .fade-leave-to {
+    &.fade-enter, &.fade-leave-to {
         transform: translateY(-15px);
     }
     &.fade-leave-active {
