@@ -1,5 +1,8 @@
 <template>
-    <div class="selector-wrapper">
+    <div 
+        class="selector-wrapper" 
+        :class="{animationEnabled}"
+    >
         <div 
             class="selector" 
             :class="upClass"
@@ -25,6 +28,7 @@
 <script>
 import { mapMutations } from 'vuex';
 import { PLACE_CALL, REMOVE_CALL, PLACE_PUT, REMOVE_PUT } from '../store/mutationTypes';
+import { clearTimeout, setTimeout } from 'timers';
 export default {
     props : {
         country : {
@@ -40,6 +44,7 @@ export default {
             required: true
         }
     },
+    data : () => ({animationEnabled : false, animationTimer: null }),
     computed: {
         downClass () {
             return this.hasPut ?
@@ -61,11 +66,21 @@ export default {
             this.hasCall ? 
             this[REMOVE_CALL](this.country) : 
             this[PLACE_CALL](this.country);
+            this.resetAnimationTimer();
         },
         downClicked() {
             this.hasPut ? 
             this[REMOVE_PUT](this.country) :
             this[PLACE_PUT](this.country);
+            this.resetAnimationTimer();
+        },
+        async resetAnimationTimer() {
+            if (this.animationTimer) { clearTimeout(this.animationTimer); }
+            this.animationEnabled = true;
+            this.animationTimer = setTimeout(() => {
+                this.animationEnabled = false;
+                this.animationTimer = null;
+            }, 1000);
         }
     }
 };
@@ -116,6 +131,16 @@ div.selector-wrapper {
     top : 2px;
     font-family: 'glyphs';
     display : inline-block;
+    &.animationEnabled {
+        .selector {
+            &.call {
+                animation: bounce .5s 1 ease-in-out;
+            }
+            &.put {
+                animation: drop .5s 1 ease-in-out;
+            }
+        }
+    }
     .selector {
         position : relative;
         line-height : .5em;
@@ -127,7 +152,6 @@ div.selector-wrapper {
         }
         &.call {
             color : $positive;
-            animation: bounce .5s 1 ease-in-out;
             &:active {
                 color : $positive-dark;
                 transition: none;
@@ -135,7 +159,6 @@ div.selector-wrapper {
         }
         &.put {
             color : $negative;
-            animation: drop .5s 1 ease-in-out;
             &:active {
                 color: $negative-dark;
                 transition: none;
