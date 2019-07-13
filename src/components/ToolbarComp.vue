@@ -83,6 +83,7 @@ export default {
     &[here] {
         &:after {
             width : 100%;
+            transition-delay: .5s;
         }
     }
     
