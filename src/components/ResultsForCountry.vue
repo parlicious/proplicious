@@ -1,54 +1,63 @@
 <template>
-    <div 
-        class="results-for-country"
-        :style="wrapperStyle"
+    <v-card 
+        width="25em"
+        class="ma-2"
     >
-        <div
-            :style="toolbarStyle"
-            class="country-toolbar"
-        >
-            <h3 class="country-name">
-                {{ matchInfo.name }}
-            </h3>
-            <button
-                :style="styleFor('summary')"
-                @click="body = 'summary'"
+        <v-card-title>
+            <v-toolbar 
+                :color="country.primary"
+                :class="textClass"
             >
-                Summary
-            </button>
-            <button
-                :style="styleFor('fixtures')"
-                @click="body = 'fixtures'"
-            >
-                Fixtures
-            </button>
-        </div>
-        <div class="content">
-            <transition 
-                name="fade"
-                mode="out-in"
-            >
-                <country-summary
-                    v-if="body === 'summary'"
-                    :info="matchInfo"
-                />
-                <fixtures-container
-                    v-if="body === 'fixtures'"
-                    :matches="matchInfo.matches"
-                />
-            </transition>
-        </div>
-    </div>
+                <v-toolbar-title class="country-name">
+                    {{ matchInfo.name }}
+                </v-toolbar-title>
+                <template v-slot:extension>
+                    <v-tabs
+                        v-model="page"
+                        :color="country.primary"
+                        :slider-color="country.accent"
+                    >
+                        <v-tab :class="textClass">
+                            Summary
+                        </v-tab>
+                        <v-tab :class="textClass">
+                            Fixtures
+                        </v-tab>
+                    </v-tabs>
+                </template>
+            </v-toolbar>
+        </v-card-title>
+        <v-card-text>
+            <v-tabs-items v-model="page">
+                <v-tab-item>
+                    <country-summary :info="matchInfo" />
+                </v-tab-item>
+                <v-tab-item>
+                    <fixtures-container :matches="matchInfo.matches" />
+                </v-tab-item>
+            </v-tabs-items>
+        </v-card-text>
+    </v-card>
 </template>
 
 <script>
 import FixturesContainer from './FixturesContainer.vue';
 import CountrySummary from './CountrySummary.vue';
 import countries from '../data/countries';
+import { VToolbar, VTabs, VTabsItems, VTabItem, VToolbarTitle, VTab, VCard, VCardText, VCardTitle } from 'vuetify/lib';
 export default {
     components : {
         FixturesContainer,
-        CountrySummary
+        CountrySummary,
+        VToolbar,
+        VTabs,
+        VToolbarTitle,
+        VTabsItems,
+        VTabItem,
+        VTab,
+        VCard,
+        VCardText,
+        VCardTitle
     },
     props : {
         matchInfo : {
@@ -56,17 +65,11 @@ export default {
             required : true
         }
     },
-    data : () => ({body : 'summary'}),
+    data : () => ({page : 0}),
     computed : {
         country() { return countries[this.matchInfo.name];},
-        toolbarStyle() {
-            return {
-                background : this.country.primary,
-                color : this.country.complement
-            };
-        },
-        wrapperStyle() {
-            return { "border-color": this.country.primary };
+        textClass() {
+            return (this.country.complementClass) || (this.country.complement+'--text');
         }
     },
     methods : {
@@ -81,29 +84,5 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-.results-for-country {
-    width : 22em;
-    margin : .5em;
-    border-radius: .5em;
-    border : 1px solid black;
-    display : inline-block;
-    overflow : hidden;
-    .country-toolbar {
-        padding : .5em;
-        .country-name {
-            margin: 0 0 .3em 0;
-            font-size: 140%;
 
-        }
-        button{
-            font-size : 1em;
-            background : none;
-            color : inherit;
-            margin : 0;
-        }
-    }
-    .content {
-        margin : .5em;
-    }
-}
 </style>

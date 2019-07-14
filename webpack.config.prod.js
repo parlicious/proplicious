@@ -14,8 +14,8 @@ module.exports = {
         filename   : "bundle.js"
     },
     plugins : [
-        new VueLoaderPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new VueLoaderPlugin()
     ],
     module : {
         rules : [
@@ -36,6 +36,14 @@ module.exports = {
                     'vue-style-loader',
                     'css-loader',
                     'sass-loader'
+                ]
+            },
+            {
+                test : /\.styl$/,
+                use : [
+                    'vue-style-loader',
+                    'css-loader',
+                    'stylus-loader'
                 ]
             },
             {

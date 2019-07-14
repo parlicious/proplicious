@@ -33,6 +33,9 @@ export default {
 
 <style lang="sass">
 @import '../variables.scss';
+a {
+    cursor : pointer;
+}
 body {
     ul {
         list-style-type: none;

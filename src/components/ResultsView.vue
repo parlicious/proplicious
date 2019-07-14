@@ -6,17 +6,25 @@
         >
             Loading...
         </h3>
-        <transition-group 
-            name="fade"
-            tag="div"
-            class="results-wrapper"
-        >
-            <results-for-country
-                v-for="matchInfo in sortedMatches"
-                :key="matchInfo.name"
-                :match-info="matchInfo"
-            />
-        </transition-group>
+        <transition name="fade">
+            <v-container
+                v-if="matchesByTeam"
+                fluid
+            >
+                <v-layout
+                    align-start
+                    justify-space-around
+                    row
+                    wrap
+                >
+                    <results-for-country
+                        v-for="matchInfo in sortedMatches"
+                        :key="matchInfo.name"
+                        :match-info="matchInfo"
+                    />
+                </v-layout>
+            </v-container>
+        </transition>
     </div>
 </template>
 
@@ -25,9 +33,12 @@ import { mapGetters, mapActions } from 'vuex';
 import { orderBy } from 'lodash';
 import ResultsForCountry from './ResultsForCountry.vue';
 import { REFRESH_RESULTS } from '../store/actionTypes';
+import { VContainer, VLayout } from 'vuetify/lib';
 export default {
     components : {
-        ResultsForCountry
+        ResultsForCountry,
+        VContainer,
+        VLayout
     },
     computed : {
         ...mapGetters([

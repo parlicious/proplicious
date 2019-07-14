@@ -84,7 +84,7 @@ const italy = {
     ew   : 2.06,
     primary: '#007FFF',
     complement: 'white',
-    accent: '#009246'
+    accent: 'green'
 };
 
 const canada = {
@@ -117,7 +117,7 @@ const england = {
     rank : 4,
     primary: '#CF081F',
     complement: 'white',
-    accent: 'darkgreen'
+    accent: 'green 900'
 };
 
 const france = {
@@ -171,8 +171,8 @@ const australia = {
     odds : 5.88,
     ew   : 3.72,
     primary: '#FFCD00',
-    complement: '#00843D',
-    accent: 'white'
+    complement: 'black',
+    accent: '#00C853',
 };
 
 const wales = {
@@ -205,7 +205,7 @@ const georgia = {
     ew   : 1.68,
     primary: '#FF0000',
     complement: 'white',
-    accent: 'darkgrey'
+    accent: 'grey 800'
 };
 
 const uruguay = {
