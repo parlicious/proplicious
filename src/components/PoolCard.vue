@@ -1,19 +1,23 @@
 <template>
-    <v-card class="ma-3 pool-card">
+    <v-card 
+        class="ma-3 pool-card"
+        :color="color.lighten5"
+    >
         <v-card-title>
-            <v-toolbar :color="color.base">
+            <v-toolbar :color="color.lighten3">
                 <v-toolbar-title class="white--text">
                     Pool {{ letter }}
                 </v-toolbar-title>
             </v-toolbar>
         </v-card-title>
-        <v-card-text :color="color.lilghten3">
+        <v-card-text>
             <ul class="country-list">
                 <country-list-item
                     v-for="country in countries"
                     :key="country.name"
                     :country="country"
                     :pool="letter"
+                    :color="color"
                 />
             </ul>
         </v-card-text>
@@ -21,7 +25,7 @@
 </template>
 <script>
 import CountryListItem from './CountryListItem.vue';
-import { VCard, VCardTitle, VToolbar, VToolbarTitle } from 'vuetify/lib';
+import { VCard, VCardTitle, VToolbar, VToolbarTitle, VCardText } from 'vuetify/lib';
 import colors from 'vuetify/es5/util/colors';
 export default {
     components : {
@@ -29,7 +33,8 @@ export default {
         VCard,
         VCardTitle,
         VToolbar,
-        VToolbarTitle
+        VToolbarTitle,
+        VCardText
     },
     props : {
         countries : {
@@ -45,11 +50,11 @@ export default {
         color() {
             switch(this.letter) {
                 case 'B':
-                    return colors.red;
+                    return colors.pink;
                 case 'C':
-                    return colors.green;
+                    return colors.teal;
                 case 'D':
-                    return colors.purple;
+                    return colors.deepOrange;
                 case 'A':
                 default:
                     return colors.blue;
@@ -66,7 +71,6 @@ export default {
     flex : 1 0 auto;
     .country-list {
         list-style: none;
-        padding : 16px;
     }
 }
 </style>

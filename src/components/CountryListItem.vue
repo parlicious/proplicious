@@ -4,6 +4,7 @@
         <span class="name">{{ country.name }}</span>
         <span
             class="ew"
+            :style="{background : color.lighten3 }"
             :class="extraClass"
         >{{ country.ew }}
             <country-selector 
@@ -30,6 +31,10 @@ export default {
         pool : {
             type : String,
             default : 'A'
+        },
+        color : {
+            type : Object,
+            required : true
         }
     },
     computed : {
@@ -66,29 +71,20 @@ li {
 .ew {
     font-weight: bold;
     color : white;
-    background : $colora;
     border-radius : .5em;
     padding : 0 .3em;
     float : right;
-    margin : 0 .5em;
-    &.B {
-        background: $colorb;
-    }
-    &.C {
-        background: $colorc;
-    }
-    &.D {
-        background: $colord;
-    }
+    min-width : 3.5em;
+    text-align : right;
 }
 
 .call {
-    color: limegreen;
+    color: $positive;
     transition: color .3s;
 }
 
 .put {
-    color : red;
+    color : $negative;
     transition: color .3s;
 }
 
