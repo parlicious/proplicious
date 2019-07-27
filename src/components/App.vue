@@ -1,12 +1,24 @@
 <template>
-    <div class="app-wrapper">
-        <toolbar-comp />
-        <transition
-            name="fade"
-            mode="out-in"
+    <v-app>
+        <v-navigation-drawer 
+            v-model="drawer"
+            app
         >
-            <router-view />
-        </transition>
+            <v-list dense>
+                <v-list-tile to="/">
+                    <v-list-tile-content>Picks</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile to="/results">
+                    <v-list-tile-content>Results</v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
+        <toolbar-comp :toggle-drawer="toggleDrawer" />
+        <v-content>
+            <v-fade-transition mode="out-in">
+                <router-view />
+            </v-fade-transition>
+        </v-content>
         <transition name="fade">
             <load-screen 
                 v-if="getSubmittedPicks" 
@@ -16,79 +28,35 @@
         <message-container 
             :messages="messages" 
         />
-    </div>
+    </v-app>
 </template>
 <script>
 import ToolbarComp from './ToolbarComp.vue';
 import LoadScreen from './LoadScreen.vue';
 import MessageContainer from './MessageContainer.vue';
 import { mapGetters } from 'vuex';
+import { VApp, VContent, VFadeTransition, VNavigationDrawer, VList, VListTile, VListTileContent } from 'vuetify/lib';
 export default {
-    components : { ToolbarComp, LoadScreen, MessageContainer },
+    components : { 
+        ToolbarComp,
+        LoadScreen,
+        MessageContainer,
+        VApp,
+        VContent,
+        VFadeTransition,
+        VNavigationDrawer,
+        VListTile,
+        VListTileContent,
+        VList
+    },
+    data : () => ({ drawer: null}),
     computed : {
         ...mapGetters(['getSubmittedPicks', 'messages'])
+    },
+    methods : {
+        toggleDrawer() {
+            this.drawer = !this.drawer;
+        }
     }
 };
 </script>
-
-<style lang="sass">
-@import '../variables.scss';
-a {
-    cursor : pointer;
-}
-body {
-    ul {
-        list-style-type: none;
-    }
-    font-family: sans-serif;
-    font-size: 120%;
-    background: $bg;
-
-    .fade-enter-active, .fade-leave-active, .fade-move {
-        transition: all .5s;
-    }
-    .fade-enter, .fade-leave-to {
-        opacity: 0;
-    }
-    button {
-        display: inline-block;
-        cursor : pointer;
-        margin : 0;
-        padding : .5em;
-        font-size : 120%;
-        border-radius : 3px;
-        margin-bottom : 10px;
-        position : relative;
-        transition : background .3s ease;
-        border : none;
-        &:hover {
-            background : lightgrey;
-        }
-        &:active {
-            background : grey;
-        }
-        &:after {
-            transition: width .3s ease-out;
-            content : "";
-            width : 0%;
-            display : block;
-            margin : 0;
-            border-bottom : 1px solid black;
-        }
-        &.selected {
-            &:after {
-                width : 100%;
-                transition-delay: .5s;
-            }
-        }
-    }
-}
-</style>
-<style lang="sass" scoped>
-@import '../variables.scss';
-@media(max-width:$break){
-    .app-wrapper {
-        padding-bottom : 3.5em;
-    }
-}
-</style>

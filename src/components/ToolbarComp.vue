@@ -1,37 +1,54 @@
 <template>
-    <div class="toolbar">
-        <router-link to="/">
-            <div class="rwc-pics">
-                <img src="../../static/img/rwc2019-logo-symbol.png">
-                <img src="../../static/img/rwc2019-logo-text-black.png">
-            </div>
-        </router-link>
-        <router-link 
-            to="/"
-            tag="button"
-            class="nav-link"
-            :class="{selected: onPicks}"
-        >
-            Picks
-        </router-link>
-        <router-link 
-            to="/results"
-            tag="button"
-            class="nav-link"
-            :class="{selected:onResults}"
-        >
-            Results
-        </router-link>
-        <transition name="fade">
-            <submission-form v-if="onPicks" />
-        </transition>
-    </div>
+    <v-toolbar app>
+        <v-toolbar-side-icon @click="toggleDrawer" />
+        <v-toolbar-items>
+            <v-btn 
+                to="/"
+                flat
+                active-class=""
+                class="hidden-sm-and-down"
+            >
+                <v-img 
+                    :src="require('../../static/img/rwc2019-logo-symbol.png')"
+                    contain
+                />
+            </v-btn>
+        </v-toolbar-items>
+        <v-toolbar-title>Proplicious</v-toolbar-title>
+        <v-spacer />
+        <v-toolbar-items class="hidden-sm-and-down">
+            <v-btn
+                to="/"
+                flat
+            >
+                Picks
+            </v-btn>
+            <v-btn 
+                to="/results"
+                flat
+            >
+                Results
+            </v-btn>
+        </v-toolbar-items>
+    </v-toolbar>
 </template>
 <script>
-import SubmissionForm from './SubmissionForm.vue';
+import { VToolbar, VToolbarItems, VBtn, VToolbarSideIcon, VSpacer, VImg, VToolbarTitle } from 'vuetify/lib';
 export default {
     components : {
-        SubmissionForm
+        VToolbar,
+        VToolbarItems,
+        VBtn,
+        VToolbarSideIcon,
+        VSpacer,
+        VImg,
+        VToolbarTitle
+    },
+    props : {
+        toggleDrawer : {
+            type : Function,
+            required : true
+        }
     },
     computed : {
         page() {
@@ -46,23 +63,3 @@ export default {
     }
 };
 </script>
-
-<style lang="sass" scoped>
-.rwc-pics {
-    width : 80px;
-    display : inline-block;
-    margin-right : 2em;
-    img {
-        width: 100%;
-    }
-}
-.toolbar {
-    position: relative;
-    border-bottom : 1px solid black;
-    .submit-form {
-        &.fade-enter-active {
-            transition-delay: .5s;
-        }
-    }
-}
-</style>
