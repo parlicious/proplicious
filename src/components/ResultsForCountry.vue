@@ -1,6 +1,6 @@
 <template>
     <v-card 
-        width="25em"
+        width="30em"
         class="ma-2"
     >
         <v-card-title>

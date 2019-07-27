@@ -4,7 +4,7 @@
         :color="color.lighten5"
     >
         <v-card-title>
-            <v-toolbar :color="color.lighten3">
+            <v-toolbar :color="color.base">
                 <v-toolbar-title class="white--text">
                     Pool {{ letter }}
                 </v-toolbar-title>
