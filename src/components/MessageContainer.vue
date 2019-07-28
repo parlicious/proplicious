@@ -26,11 +26,10 @@ export default {
 <style lang="sass" scoped>
 .message-container {
     position : fixed;
-    top : 0;
     left : 0;
     max-width : 100%;
     width : 20em;
-    padding : .5em;
+    z-index : 10;
 }
 </style>
 

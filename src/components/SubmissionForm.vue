@@ -1,38 +1,42 @@
 <template>
-    <form 
-        class="submit-form"
+    <v-form 
+        class="submission-form"
         @submit.prevent="submitAttempt"
     >
-        <div class="input-wrapper">
-            <input 
-                v-model="email"
-                type="email" 
-                placeholder="Email"
-                @keyup.enter="submitAttempt"
-            >
-            <input 
-                v-model="password"
-                type="password" 
-                placeholder="Password"
-                minlength="8"
-                @keyup.enter="submitAttempt"
-            >
-        </div>
-        <button
-            class="submit-btn"
+        <v-text-field 
+            v-model="email"
+            type="email" 
+            placeholder="Email"
+            @keyup.enter="submitAttempt"
+        />
+        <v-text-field  
+            v-model="password"
+            type="password" 
+            placeholder="Password"
+            minlength="8"
+            @keyup.enter="submitAttempt"
+        />
+        <v-btn
+            class="mr-4"
             type="submit"
         >
             Submit
-        </button>
-    </form>
+        </v-btn>
+    </v-form>
 </template>
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
 import { SET_EMAIL, SET_PASSWORD } from '../store/mutationTypes';
 import { SUBMIT_ERRORS, SUBMIT_PICKS } from '../store/actionTypes';
 import { numCallsRequired, numPutsRequired } from '../data/settings';
+import { VForm, VTextField, VBtn } from 'vuetify/lib';
 const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 export default {
+    components : {
+        VForm,
+        VTextField,
+        VBtn
+    },
     computed : {
         ...mapGetters([
             'callCount',
@@ -93,59 +97,11 @@ export default {
     }
 };
 </script>
-
 <style lang="sass" scoped>
-@import '../variables.scss';
-.submit-form {
-    display : inline-block;
-    position : absolute;
-    right : 0;
-
-    .input-wrapper {
-        display : inline-block;
-        padding : .5em 0 0 0;
-        input {
-            display : block;
-            font-size : 110%;
-        }
-    }
-    .submit-btn {
-        font-size : 110%;
-        border-radius : .4em;
-        background : $accent;
-        color : white;
-        vertical-align : top;
-        padding : .6em;
-        border: none;
-        cursor:pointer;
-        margin : 1em 1em;
-        &:active {
-            background : darken($accent, 15%);
-        }
-    }
-}
-@media(max-width:$break) {
-    .submit-form {
-        position : fixed;
-        left : 0;
-        bottom : 0;
-        background: $bg;
-        width : 100%;
-        float : unset;
-        z-index : 5;
-        padding : 1%;
-        font-size : 90%;
-        .input-wrapper {
-            width : 63%;
-            input {
-                width : 100%;
-            }
-        }
-        .submit-btn {
-            margin-left : 3%;
-            margin-right : 1%;
-            width : 25%
-        }
-    }
+.submission-form {
+    max-width : 30em;
+    width : 100%;
+    float : right;
+    margin : 2em;
 }
 </style>

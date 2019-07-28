@@ -23,6 +23,7 @@
                 :letter="letter"
             />
         </v-layout>
+        <submission-form />
     </v-container>
 </template>
 <script>
@@ -30,6 +31,7 @@ import PoolCard from './PoolCard.vue';
 import pools from '../data/pools';
 import { numCallsRequired, numPutsRequired } from '../data/settings';
 import { VContainer, VCard, VCardTitle, VLayout, VCardText } from 'vuetify/lib';
+import SubmissionForm from './SubmissionForm.vue';
 export default {
     components : {
         PoolCard,
@@ -37,7 +39,8 @@ export default {
         VCard,
         VCardTitle,
         VLayout,
-        VCardText
+        VCardText,
+        SubmissionForm
     },
     data : () => { 
         return { 

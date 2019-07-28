@@ -21,10 +21,10 @@ export default {
         extraClass() {
             const classes = [];
             if(this.message.error) {
-                classes.push('error');
+                classes.push('error-msg');
             }
             if(this.message.success) {
-                classes.push('success');
+                classes.push('success-msg');
             }  
             return classes;
         }
@@ -47,15 +47,16 @@ export default {
     cursor : pointer;
     max-width : 100%;
     width : 19em;
-    &.error {
-        background : lighten(red, 45%);
-        border-color : red;
-        color : red;
+    margin : 1em;
+    &.error-msg {
+        background : lighten($negative, 40%);
+        border-color : $negative;
+        color : $negative;
     }
-    &.success {
-        background : lighten(limegreen, 45%);
-        border-color: limegreen;
-        color : limegreen;
+    &.success-msg {
+        background : lighten($positive, 45%);
+        border-color: $positive;
+        color : $positive;
     }
 
     &.fade-enter, &.fade-leave-to {

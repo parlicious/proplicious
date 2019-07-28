@@ -25,7 +25,7 @@
                 :picks="getSubmittedPicks"
             />
         </transition>
-        <message-container 
+        <message-container
             :messages="messages" 
         />
     </v-app>

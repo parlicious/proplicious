@@ -2,7 +2,7 @@ import { SUBMIT_ERRORS, SUCCESS_MESSAGE } from './actionTypes';
 import { REMOVE_MESSAGE } from './mutationTypes';
 import Vue from 'vue';
 import * as uuid from 'uuid/v4';
-export const messageTime = 3000;
+export const messageTime = 4000;
 import { delay } from '../utils';
 
 export default {

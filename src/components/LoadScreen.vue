@@ -31,7 +31,7 @@ export default {
     right : 0;
     bottom : 0;
     background : rgba($accent-desat, .6);
-    padding : 2em;
+    padding : 4em;
 }
 </style>
 
