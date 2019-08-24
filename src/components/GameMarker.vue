@@ -37,22 +37,12 @@ export default {
 </script>
 <style lang="sass" scoped>
     @import '../variables.scss';
-
-    @keyframes shifting {
-        0% {
-            background-position: 0 0;
-        }
-        100% {
-            background-position: calc(150px + 1em) 0;
-        }
-    }
     .game-marker {
         display : inline-block;
-        font-size : 60%;
         margin : 1em;
         padding : .5em;
-        border-radius : .5em;
-        width : 150px;
+        font-size : 80%;
+        width : 160px;
         border : 3px solid darkgrey;
 
         &[result=U] {
@@ -71,7 +61,6 @@ export default {
             border-color: $neutral;
         }
         &[result=Winning] {
-            animation : shifting 5s linear 0s infinite;
             border-color: $positive;
             background: repeating-linear-gradient(
                 90deg,
@@ -81,7 +70,6 @@ export default {
             );
         }
         &[result=Losing] {
-            animation : shifting 5s linear 0s infinite;
             border-color: $negative;
             background: repeating-linear-gradient(
                 90deg,
@@ -91,7 +79,6 @@ export default {
             );
         }
         &[result=Tied] {
-            animation : shifting 5s linear 0s infinite;
             border-color: $neutral;
             background: repeating-linear-gradient(
                 90deg,
