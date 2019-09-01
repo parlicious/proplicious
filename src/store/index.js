@@ -4,6 +4,7 @@ import picksModule from './picksModule';
 import userModule from './userModule';
 import messageModule from './messageModule';
 import resultsModuleBuilder from './resultsModuleBuilder';
+import standingsModule from './standingsModule';
 import {SUBMIT_PICKS, SUCCESS_MESSAGE, SUBMIT_ERRORS} from './actionTypes';
 import { submitPicks } from '../utils';
 Vue.use(Vuex);
@@ -22,7 +23,8 @@ export default new Vuex.Store({
         picksModule,
         userModule,
         messageModule,
-        resultsModule : resultsModuleBuilder(1558)
+        resultsModule : resultsModuleBuilder(1558),
+        standingsModule
     },
     actions : {
         [SUBMIT_PICKS] : function({commit, getters, dispatch}) {

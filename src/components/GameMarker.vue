@@ -63,7 +63,7 @@ export default {
         &[result=Winning] {
             border-color: $positive;
             background: repeating-linear-gradient(
-                90deg,
+                45deg,
                 $positive-light,
                 $bg 50%,
                 $positive-light 100%
@@ -72,7 +72,7 @@ export default {
         &[result=Losing] {
             border-color: $negative;
             background: repeating-linear-gradient(
-                90deg,
+                45deg,
                 $negative-light,
                 $bg 50%,
                 $negative-light 100%
@@ -81,7 +81,7 @@ export default {
         &[result=Tied] {
             border-color: $neutral;
             background: repeating-linear-gradient(
-                90deg,
+                45deg,
                 $neutral-light,
                 $bg 50%,
                 $neutral-light 100%

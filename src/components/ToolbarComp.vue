@@ -24,6 +24,12 @@
                 Picks
             </v-btn>
             <v-btn 
+                to="/standings"
+                flat
+            >
+                Standings
+            </v-btn>
+            <v-btn 
                 to="/results"
                 flat
             >
