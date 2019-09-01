@@ -8,6 +8,9 @@
                 <v-list-tile to="/">
                     <v-list-tile-content>Picks</v-list-tile-content>
                 </v-list-tile>
+                <v-list-tile to="/standings">
+                    <v-list-tile-content>Standings</v-list-tile-content>
+                </v-list-tile>
                 <v-list-tile to="/results">
                     <v-list-tile-content>Results</v-list-tile-content>
                 </v-list-tile>

@@ -1,0 +1,63 @@
+<template>
+    <v-list-group 
+        v-model="active"
+        no-action
+    >
+        <template v-slot:activator>
+            <v-list-tile>
+                <v-list-tile-title>{{ contestant.name }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ contestant.score }}</v-list-tile-sub-title>
+            </v-list-tile>
+        </template>
+        <v-list-tile
+            v-for="item in callsAndPuts"
+            :key="item.key"
+        >
+            <v-icon color="green">
+                arrow_upward
+            </v-icon>
+            <v-list-tile-title> {{ item.call.name }} </v-list-tile-title>
+            <v-list-tile-sub-title> {{ item.call.value }} </v-list-tile-sub-title>
+            <v-icon color="red">
+                arrow_downward
+            </v-icon>
+            <v-list-tile-title> {{ item.put.name }} </v-list-tile-title>
+            <v-list-tile-sub-title> {{ item.put.value }} </v-list-tile-sub-title>
+        </v-list-tile>
+    </v-list-group>
+</template>
+
+<script>
+import { VListGroup, VListTile, VListTileTitle, VListTileSubTitle, VIcon} from 'vuetify/lib';
+export default {
+    components : {
+        VListGroup,
+        VListTile,
+        VIcon,
+        VListTileTitle,
+        VListTileSubTitle
+    },
+    props : {
+        contestant : {
+            type : Object,
+            required : true
+        }
+    },
+    data : () => ({
+        active : false
+    }),
+    computed : {
+        callsAndPuts : function() {
+            const combined = [];
+            for(let i = 0; i < this.contestant.calls.length; i++) {
+                combined[i] = { 
+                    call : this.contestant.calls[i],
+                    put : this.contestant.puts[i],
+                    key : i
+                };
+            }
+            return combined;
+        }
+    }
+};
+</script>

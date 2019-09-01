@@ -1,5 +1,5 @@
 import {FETCH_STANDINGS, REFRESH_RESULTS} from './actionTypes';
-import { chain, sumBy } from 'lodash';
+import { chain, sumBy, orderBy } from 'lodash';
 import Contestant from '../data/Contestent';
 
 //TODO: fetch actual contestants here
@@ -14,8 +14,17 @@ async function fetchContestants() {
 function mapContestant(contestant, resultsByCountry) {
     Object.setPrototypeOf(contestant, Contestant.prototype);
 
-    contestant.setCalls(contestant.getCalls().map(name => ({ name, value : Number(resultsByCountry[name].value)})));
-    contestant.setPuts(contestant.getPuts().map(name => ({ name, value : -1 * Number(resultsByCountry[name].value)})));
+    contestant.setCalls(
+        orderBy(contestant.getCalls()
+            .map(name => ({ name, value : Number(resultsByCountry[name].value)})),
+            'value',
+            'desc'
+        ));
+    contestant.setPuts(
+        orderBy(contestant.getPuts()
+            .map(name => ({ name, value : -1 * Number(resultsByCountry[name].value)})),
+            'value', 'desc'
+        ));
     contestant.setScore(sumBy([...contestant.getCalls(), ...contestant.getPuts()], 'value').toFixed(2));
 
     return contestant;

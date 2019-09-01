@@ -10,7 +10,13 @@
             <v-container
                 v-if="standings"
             >
-                <div>{{ standings }}</div>
+                <v-list :dense="true">
+                    <standings-row
+                        v-for="row in standings"
+                        :key="row.name"
+                        :contestant="row"
+                    />
+                </v-list>
             </v-container>
         </transition>
     </div>
@@ -19,10 +25,13 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import { FETCH_STANDINGS } from '../store/actionTypes';
-import { VContainer } from 'vuetify/lib';
+import { VContainer, VList } from 'vuetify/lib';
+import StandingsRow from './StandingsRow.vue';
 export default {
     components : {
-        VContainer
+        VContainer,
+        VList,
+        StandingsRow
     },
     computed : {
         ...mapGetters([
