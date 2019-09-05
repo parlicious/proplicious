@@ -1,6 +1,10 @@
 <template>
     <li>
-        <span class="flag">{{ country.flag }}</span>
+        <a 
+            :href="country.intro"
+            class="flag"
+            target="_blank"
+        >{{ country.flag }}</a>
         <span class="name">{{ country.name }}</span>
         <span
             class="ew"
@@ -86,6 +90,10 @@ li {
 .put {
     color : $negative;
     transition: color .3s;
+}
+
+.flag {
+    text-decoration:none;
 }
 
 </style>

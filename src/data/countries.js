@@ -7,7 +7,8 @@ const ireland = {
     ew   : 4.49,
     primary: '#169b62',
     complement : 'white',
-    accent : '#ff883e'
+    accent : '#ff883e',
+    intro: 'https://www.youtube.com/watch?v=kwElFQInEh8'
 };
 
 const scotland = {
@@ -18,7 +19,8 @@ const scotland = {
     rank : 7,
     primary: '#0165BF',
     complement: 'white',
-    accent: '#FFD323'
+    accent: '#FFD323',
+    intro: 'https://www.youtube.com/watch?v=jsxAvs9XCAQ'
 };
 
 const japan = {
@@ -29,7 +31,8 @@ const japan = {
     rank : 11,
     primary: '#ff567e',
     complement: 'white',
-    accent: '#BC002D'
+    accent: '#BC002D',
+    intro: 'https://www.youtube.com/watch?v=D_OUleQ9J-o&t=3s'
 };
 
 const samoa = {
@@ -40,7 +43,8 @@ const samoa = {
     ew   : 1.5,
     primary : '#002B7F',
     complement: 'white',
-    accent: '#CE1126'
+    accent: '#CE1126',
+    intro: 'https://www.youtube.com/watch?v=oPw_mO6GxOA'
 };
 
 const russia = {
@@ -51,7 +55,8 @@ const russia = {
     rank : 20,
     primary: '#D52B1E',
     complement: 'white',
-    accent: '#0039A6'
+    accent: '#0039A6',
+    intro: 'https://www.youtube.com/watch?v=O5mHRHNIceQ'
 };
 
 const nz = {
@@ -62,7 +67,8 @@ const nz = {
     rank : 1,
     primary: '#333',
     complement: 'white',
-    accent: '#D50000'
+    accent: '#D50000',
+    intro: 'https://www.youtube.com/watch?v=uSxzHf-Z50c'
 };
 
 const sa = {
@@ -73,7 +79,8 @@ const sa = {
     rank : 5,
     primary: '#007A4D',
     complement: 'white',
-    accent: '#FFB612'
+    accent: '#FFB612',
+    intro: 'https://www.youtube.com/watch?v=A9TH0UkjX6o'
 };
 
 const italy = {
@@ -84,7 +91,8 @@ const italy = {
     ew   : 2.06,
     primary: '#007FFF',
     complement: 'white',
-    accent: 'green'
+    accent: 'green',
+    intro: 'https://www.youtube.com/watch?v=DEAaceCdzk0'
 };
 
 const canada = {
@@ -96,6 +104,7 @@ const canada = {
     primary: '#FF0000',
     complement: 'white',
     accent: '#ff9999',
+    intro: 'https://www.youtube.com/watch?v=UL3MdIuRJwk&t=52s'
 };
 
 const namibia = {
@@ -106,7 +115,8 @@ const namibia = {
     rank : 23,
     primary : '#003580',
     complement: 'white',
-    accent: '#FFCE00'
+    accent: '#FFCE00',
+    intro: 'https://www.youtube.com/watch?v=swXM7Hwpu54'
 };
 
 const england = {
@@ -117,7 +127,8 @@ const england = {
     rank : 4,
     primary: '#CF081F',
     complement: 'white',
-    accent: 'green 900'
+    accent: 'green 900',
+    intro: 'https://www.youtube.com/watch?v=unHc2QyaRVU'
 };
 
 const france = {
@@ -128,7 +139,8 @@ const france = {
     ew   : 2.86,
     primary : '#002395',
     complement : 'white',
-    accent : '#ED2939'
+    accent : '#ED2939',
+    intro: 'https://www.youtube.com/watch?v=wRHlFJNfve4'
 };
 
 const argentina = {
@@ -139,7 +151,8 @@ const argentina = {
     rank : 10,
     primary : '#75AADB',
     complement : 'white',
-    accent : '#FCBF49'
+    accent : '#FCBF49',
+    intro: 'https://www.youtube.com/watch?v=q4cAOm-oQp0'
 };
 
 const tonga = {
@@ -150,7 +163,8 @@ const tonga = {
     rank : 13,
     primary: '#C10000',
     complement: 'white',
-    accent: '#333'
+    accent: '#333',
+    intro: 'https://www.youtube.com/watch?v=j6XCBYZWvaE'
 };
 
 const usa = {
@@ -161,7 +175,8 @@ const usa = {
     ew   : .9,
     primary: '#3C3B6E',
     complement: 'white',
-    accent: '#B22234'
+    accent: '#B22234',
+    intro: 'https://www.youtube.com/watch?v=xcayGW1b1W0'
 };
 
 const australia = {
@@ -173,6 +188,7 @@ const australia = {
     primary: '#FFCD00',
     complement: 'black',
     accent: '#00C853',
+    intro: 'https://www.youtube.com/watch?v=vsN14GXfDjw'
 };
 
 const wales = {
@@ -194,7 +210,8 @@ const fiji = {
     rank : 9,
     primary: '#68BFE5',
     complement: 'white',
-    accent: '#CE1126'
+    accent: '#CE1126',
+    intro: 'https://www.youtube.com/watch?v=CVq3M-aYY4k'
 };
 
 const georgia = {
@@ -205,7 +222,8 @@ const georgia = {
     ew   : 1.68,
     primary: '#FF0000',
     complement: 'white',
-    accent: 'grey 800'
+    accent: 'grey 800',
+    intro: 'https://www.youtube.com/watch?v=bpXpOv5bz-c'
 };
 
 const uruguay = {
@@ -216,7 +234,8 @@ const uruguay = {
     rank : 19,
     primary: '#0038A8',
     complement: 'white',
-    accent: '#FCD116'
+    accent: '#FCD116',
+    intro: 'https://www.youtube.com/watch?v=35SiPq4LIN8'
 };
 
 export default keyBy([
