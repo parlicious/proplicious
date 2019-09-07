@@ -5,7 +5,7 @@
             app
         >
             <v-list dense>
-                <v-list-tile to="/">
+                <v-list-tile to="/picks">
                     <v-list-tile-content>Picks</v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile to="/standings">

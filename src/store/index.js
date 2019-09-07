@@ -23,7 +23,7 @@ export default new Vuex.Store({
         picksModule,
         userModule,
         messageModule,
-        resultsModule : resultsModuleBuilder(1558),
+        resultsModule : resultsModuleBuilder(1558, 1568976300000),
         standingsModule
     },
     actions : {

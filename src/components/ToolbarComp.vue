@@ -18,7 +18,7 @@
         <v-spacer />
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn
-                to="/"
+                to="/picks"
                 flat
             >
                 Picks

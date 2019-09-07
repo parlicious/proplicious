@@ -49,12 +49,13 @@ async function getRealInfo(resultsUrl) {
     const { data : eventInfo } = await axios.get(resultsUrl);
     return eventInfo;
 }
-export default function(eventId) {
+export default function(eventId, firstMatchTime) {
     const resultsUrl = `https://cmsapi.pulselive.com/rugby/event/${eventId}/schedule?language=en`;
     return {
         state : {
             matches : null,
-            matchesByTeam : null
+            matchesByTeam : null,
+            firstMatchTime
         },
         mutations : {
             [SET_MATCHES] : (state, matches) => {
@@ -86,7 +87,8 @@ export default function(eventId) {
         },
         getters : {
             matchesByTeam : ({matchesByTeam}) => matchesByTeam,
-            matchesForTeam : ({matchesByTeam}) => (teamName) => matchesByTeam && matchesByTeam[teamName]
+            matchesForTeam : ({matchesByTeam}) => (teamName) => matchesByTeam && matchesByTeam[teamName],
+            firstMatchTime : ({firstMatchTime}) => firstMatchTime
         },
         actions : {
             [REFRESH_RESULTS] : async function({commit}) {
