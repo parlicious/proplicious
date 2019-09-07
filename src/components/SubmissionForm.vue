@@ -3,6 +3,13 @@
         class="submission-form"
         @submit.prevent="submitAttempt"
     >
+        <v-text-field
+            v-model="name"
+            type="text"
+            name="name"
+            placeholder="Name"
+            @keyup.enter="submitAttempt"
+        />
         <v-text-field 
             v-model="email"
             type="email" 
@@ -26,7 +33,7 @@
 </template>
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
-import { SET_EMAIL, SET_PASSWORD } from '../store/mutationTypes';
+import { SET_EMAIL, SET_PASSWORD, SET_NAME } from '../store/mutationTypes';
 import { SUBMIT_ERRORS, SUBMIT_PICKS } from '../store/actionTypes';
 import { numCallsRequired, numPutsRequired } from '../data/settings';
 import { VForm, VTextField, VBtn } from 'vuetify/lib';
@@ -51,6 +58,10 @@ export default {
             get() { return this.getUser.password; },
             set(val) { this[SET_PASSWORD](val); }
         },
+        name:{
+            get() { return this.getUser.name; },
+            set(val) { this[SET_NAME](val); }
+        },
         invalid() {
             return this.callCount !== 3 || this.putCount !== 3;
         }
@@ -59,7 +70,8 @@ export default {
         ...mapMutations([
             SET_EMAIL,
             SET_PASSWORD,
-            SUBMIT_ERRORS
+            SUBMIT_ERRORS,
+            SET_NAME
         ]),
         ...mapActions([
             SUBMIT_ERRORS,

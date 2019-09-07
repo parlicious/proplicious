@@ -6,3 +6,4 @@ export const SET_EMAIL = 'setEmail';
 export const SET_PASSWORD = 'setPassword';
 export const REMOVE_MESSAGE = 'removeMessage';
 export const SET_MATCHES = 'setMatches';
+export const SET_NAME = 'setName';
