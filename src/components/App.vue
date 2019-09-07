@@ -5,7 +5,10 @@
             app
         >
             <v-list dense>
-                <v-list-tile to="/picks">
+                <v-list-tile 
+                    v-if="showPools"
+                    to="/picks"
+                >
                     <v-list-tile-content>Picks</v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile to="/standings">
@@ -54,7 +57,10 @@ export default {
     },
     data : () => ({ drawer: null}),
     computed : {
-        ...mapGetters(['getSubmittedPicks', 'messages'])
+        ...mapGetters(['getSubmittedPicks', 'messages', 'firstMatchTime']),
+        showPools() {
+            return this.firstMatchTime > Date.now();
+        }
     },
     methods : {
         toggleDrawer() {

@@ -41,5 +41,5 @@ export default {
             return this.firstMatchTime > Date.now();
         }
     }
-}
+};
 </script>

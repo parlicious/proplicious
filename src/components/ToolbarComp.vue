@@ -18,6 +18,7 @@
         <v-spacer />
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn
+                v-if="showPicks"
                 to="/picks"
                 flat
             >
@@ -40,6 +41,7 @@
 </template>
 <script>
 import { VToolbar, VToolbarItems, VBtn, VToolbarSideIcon, VSpacer, VImg, VToolbarTitle } from 'vuetify/lib';
+import { mapGetters } from 'vuex';
 export default {
     components : {
         VToolbar,
@@ -57,14 +59,9 @@ export default {
         }
     },
     computed : {
-        page() {
-            return this.$route.name;
-        },
-        onPicks () {
-            return this.page === 'picks';
-        },
-        onResults(){
-            return this.page === 'results';
+        ...mapGetters(['firstMatchTime']),
+        showPicks() {
+            return this.firstMatchTime > Date.now();
         }
     }
 };
