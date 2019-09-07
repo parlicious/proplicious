@@ -199,7 +199,8 @@ const wales = {
     rank : 2,
     primary: '#D30731',
     complement: 'white',
-    accent: '#00AD36'
+    accent: '#00AD36',
+    intro: 'https://www.youtube.com/watch?v=I64ahtfVj64'
 };
 
 const fiji = {

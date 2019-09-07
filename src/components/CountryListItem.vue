@@ -69,6 +69,7 @@ export default {
 li {
     line-height : 1.3em;
     padding : .2em 0;
+    position: relative;
 
 }
 
@@ -91,9 +92,21 @@ li {
     color : $negative;
     transition: color .3s;
 }
+.name {
+    margin-left: 1.5em;
+}
 
 .flag {
     text-decoration:none;
+    position: absolute;
+    font-size: 115%;
+    transition: font-size .1s;
+    &:hover{
+        font-size: 140%;
+    }
+    &:active {
+        font-size: 115%;
+    }
 }
 
 </style>
