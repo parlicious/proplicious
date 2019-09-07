@@ -1,13 +1,23 @@
 <template>
     <v-container fluid>
         <v-card class="pa-3">
-            <v-card-title>Instructions</v-card-title>
+            <v-card-title primary-title>
+                <div class="headline">
+                    Instructions
+                </div>
+            </v-card-title>
             <v-card-text>
                 Select <span class="heavy">{{ numCallsRequired }} nations</span> that you belive will win
                 <span class="heavy">more</span> games than the listed number and <span class="heavy">{{ numPutsRequired }} nations</span>
                 that you believe will win <span class="heavy">fewer</span> games than the listed number.  Draws are rare
                 in rugby but can happen during the group stage, in that case, each team will be
                 award half of a win.
+            </v-card-text>
+            <v-card-text>
+                You can see the full rules on the 
+                <router-link to="/">
+                    Welcome page.
+                </router-link>
             </v-card-text>
         </v-card>
         <v-layout

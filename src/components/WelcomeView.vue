@@ -1,32 +1,32 @@
 <template>
     <div>
         <v-card
-            v-for="(card, cardIndex) in cards"
-            :key="cardIndex"
+            v-for="(card) in cards"
+            :key="card.id"
             class="ma-3"
         >
             <v-card-title primary-title>
-                <div class="headline">
+                <div 
+                    :id="card.id"
+                    class="headline"
+                >
                     {{ card.header }}
                 </div>
             </v-card-title>
-            <v-card-content>
-                <v-card-text 
-                    v-for="(text, textIndex) in card.text"
-                    :key="textIndex"
-                >
-                    {{ text }}
-                </v-card-text>
-            </v-card-content>
+            <v-card-text 
+                v-for="(text, textIndex) in card.text"
+                :key="textIndex"
+            >
+                {{ text }}
+            </v-card-text>
         </v-card>
     </div>
 </template>
 <script>
-import { VCard, VCardContent, VCardTitle, VCardText } from 'vuetify/lib';
+import { VCard, VCardTitle, VCardText } from 'vuetify/lib';
 export default {
     components : {
         VCard,
-        VCardContent,
         VCardTitle,
         VCardText
     },

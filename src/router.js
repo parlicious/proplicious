@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 export default new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/', component: WelcomeView, name: 'picks' },
+        { path: '/', component: WelcomeView, name: 'welcome' },
         { path: '/picks', component: PoolViewWrapper, name: 'picks' },
         { path: '/results', component: ResultsView, name: 'results' },
         { path: '/standings', component: StandingsView, name: 'standings'}
