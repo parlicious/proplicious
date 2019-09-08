@@ -3,6 +3,7 @@
         <v-navigation-drawer 
             v-model="drawer"
             app
+            :disable-resize-watcher="true"
         >
             <v-list dense>
                 <v-list-tile 
@@ -55,7 +56,7 @@ export default {
         VListTileContent,
         VList
     },
-    data : () => ({ drawer: null}),
+    data : () => ({ drawer: false}),
     computed : {
         ...mapGetters(['getSubmittedPicks', 'messages', 'firstMatchTime']),
         showPools() {

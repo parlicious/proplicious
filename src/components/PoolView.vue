@@ -14,6 +14,9 @@
                 award half of a win.
             </v-card-text>
             <v-card-text>
+                Click on the flags to see an introduction video for that team.
+            </v-card-text>
+            <v-card-text>
                 You can see the full rules on the 
                 <router-link to="/">
                     Welcome page.
