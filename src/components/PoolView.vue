@@ -10,8 +10,8 @@
                 Select <span class="heavy">{{ numCallsRequired }} nations</span> that you belive will win
                 <span class="heavy">more</span> games than the listed number and <span class="heavy">{{ numPutsRequired }} nations</span>
                 that you believe will win <span class="heavy">fewer</span> games than the listed number.  Draws are rare
-                in rugby but can happen during the group stage, in that case, each team will be
-                award half of a win.
+                in rugby but can happen during the pool stage, in that case, each team will be
+                awarded half of a win.
             </v-card-text>
             <v-card-text>
                 Click on the flags to see an introduction video for that team.

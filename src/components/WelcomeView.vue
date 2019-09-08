@@ -58,7 +58,7 @@ export default {
                     "we will be using a modified over/under system. I have determined an expected number of wins " +
                     "for each team in the tournament. You'll see that number next to each team in the picks page. " +
                     "You need to pick four teams that you believe will do better than my projection AND four " +
-                    "teams they believe will do worse than my projection.",
+                    "teams that you believe will do worse than my projection.",
                     "For teams that you pick to overachieve, you will receive (actualWins - expectedWins) points. " +
                     "For the teams you pick to underacheive, you will receive (expectedWins - actualWins) points.",
                     "Draws are not very common in rugby, however they can happen in the pool stage.  In the event " +
@@ -69,9 +69,9 @@ export default {
                 header: 'Tournament Info',
                 id: 'tournament-info',
                 text: [
-                    "Rugby World Cup 2019 takes place in Japan. The first match will take place on Friday the 20th of " +
+                    "The Rugby World Cup takes place in Japan. The first match will take place on Friday the 20th of " +
                     "September at 6:45am Atlanta time.  If you're playing you need to have made your selections by then.",
-                    "The tournament has a pool stage and a knockout stage.  Their are four pools, each with " +
+                    "The tournament has a pool stage and a knockout stage.  There are four pools, each with " +
                     "five teams.  That means that each team will have four matches during the pool stage. " +
                     "At the end of the pool stage, the top two teams from each pool will move onto the knockout stage, " +
                     "an eight team, three round tournament to decide the champion. The knockout stage seeding is already decided. " +

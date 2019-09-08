@@ -11,13 +11,13 @@
                 </div>
             </v-card-title>
             <v-card-text>
-                It looks like the event has started.  Why do you go check out the
+                It looks like the event has started.  Why don&apos;t you go check out the
                 <router-link to="standings">
                     standings
                 </router-link>
                 or the
                 <router-link to="results">
-                    results
+                    results?
                 </router-link>
             </v-card-text>
         </v-card>
