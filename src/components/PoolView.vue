@@ -18,7 +18,7 @@
             </v-card-text>
             <v-card-text>
                 You can see the full rules on the 
-                <router-link to="/">
+                <router-link to="/#game-rules">
                     Welcome page.
                 </router-link>
             </v-card-text>

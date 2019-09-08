@@ -24,6 +24,7 @@ const Router = new VueRouter({
         const position = {};
         if (to.hash) {
           position.selector = to.hash;
+          position.offset = { x: 0, y: 100 };
         }
         Router.app.$root.$once('triggerScroll', () => {
             Router.app.$nextTick(() => resolve(position));

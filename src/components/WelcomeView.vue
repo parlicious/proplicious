@@ -74,7 +74,8 @@ export default {
                     "The tournament has a pool stage and a knockout stage.  Their are four pools, each with " +
                     "five teams.  That means that each team will have four matches during the pool stage. " +
                     "At the end of the pool stage, the top two teams from each pool will move onto the knockout stage, " +
-                    "an eight team, three round tournament to decide the champion.  There is also a third place game " +
+                    "an eight team, three round tournament to decide the champion. The knockout stage seeding is already decided. " +
+                    "Pool A plays against Pool B and Pool C plays against Pool D. There is also a third place game " +
                     "played by the two teams who lost in the semi finals.",
                     "This means there will be a total of 48 matches during the tournament, 40 pool matches, " +
                     "four quarter-finals, two semi-finals, the thrid place match, and the final. " +
