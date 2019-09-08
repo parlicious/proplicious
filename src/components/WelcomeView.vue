@@ -20,6 +20,14 @@
                 {{ text }}
             </v-card-text>
         </v-card>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/amb169-oKuM"
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+            />
+        </div>
     </div>
 </template>
 <script>
@@ -52,7 +60,7 @@ export default {
                     "You need to pick four teams that you believe will do better than my projection AND four " +
                     "teams they believe will do worse than my projection.",
                     "For teams that you pick to overachieve, you will receive (actualWins - expectedWins) points. " +
-                    "For the teams you pick to underacheive, you will receive the inverse.",
+                    "For the teams you pick to underacheive, you will receive (expectedWins - actualWins) points.",
                     "Draws are not very common in rugby, however they can happen in the pool stage.  In the event " +
                     "of a draw, both teams will be credited with half of a win."
                 ]
@@ -77,4 +85,20 @@ export default {
     })
 };
 </script>
+<style lang="sass" scoped>
+.video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+    margin: 20px;
+	height: 0;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+</style>
 
