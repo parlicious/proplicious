@@ -22,7 +22,10 @@
         </v-navigation-drawer>
         <toolbar-comp :toggle-drawer="toggleDrawer" />
         <v-content>
-            <v-fade-transition mode="out-in">
+            <v-fade-transition 
+                mode="out-in" 
+                @after-leave="$root.$emit('triggerScroll')"
+            >
                 <router-view />
             </v-fade-transition>
         </v-content>

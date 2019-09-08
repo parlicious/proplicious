@@ -16,12 +16,20 @@
             <v-icon color="green">
                 arrow_upward
             </v-icon>
-            <v-list-tile-title> {{ item.call.name }} </v-list-tile-title>
+            <v-list-tile-title>
+                <router-link :to="'/results#' + item.call.name.replace(/\s/g, '-')">
+                    {{ item.call.name }}
+                </router-link>
+            </v-list-tile-title>
             <v-list-tile-sub-title> {{ item.call.value }} </v-list-tile-sub-title>
             <v-icon color="red">
                 arrow_downward
             </v-icon>
-            <v-list-tile-title> {{ item.put.name }} </v-list-tile-title>
+            <v-list-tile-title>
+                <router-link :to="'/results#' + item.put.name.replace(/\s/g, '-')">
+                    {{ item.put.name }}
+                </router-link>
+            </v-list-tile-title>
             <v-list-tile-sub-title> {{ item.put.value }} </v-list-tile-sub-title>
         </v-list-tile>
     </v-list-group>

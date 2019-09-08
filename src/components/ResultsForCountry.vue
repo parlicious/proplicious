@@ -5,6 +5,7 @@
     >
         <v-card-title>
             <v-toolbar 
+                :id="country.name.replace(/\s/g, '-')"
                 :color="country.primary"
                 :class="textClass"
             >
