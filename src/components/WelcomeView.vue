@@ -62,7 +62,9 @@ export default {
                     "For teams that you pick to overachieve, you will receive (actualWins - expectedWins) points. " +
                     "For the teams you pick to underacheive, you will receive (expectedWins - actualWins) points.",
                     "Draws are not very common in rugby, however they can happen in the pool stage.  In the event " +
-                    "of a draw, both teams will be credited with half of a win."
+                    "of a draw, both teams will be credited with half of a win.",
+                    "Because I'm putting together the expected wins, I am not eligible to win the contest. " +
+                    "I'm still going to submit a set of picks though."
                 ]
             },
             {
