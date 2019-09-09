@@ -112,7 +112,7 @@ export default {
 <style lang="sass" scoped>
 .submission-form {
     max-width : 30em;
-    width : 100%;
+    width : calc(100% - 4em);
     float : right;
     margin : 2em;
 }

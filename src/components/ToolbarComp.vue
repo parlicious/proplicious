@@ -14,7 +14,15 @@
                 />
             </v-btn>
         </v-toolbar-items>
-        <v-toolbar-title>Proplicious</v-toolbar-title>
+        <v-toolbar-title to="/">
+            <router-link 
+                to="/"
+                tag="span"
+                class="toolbar-title"
+            >
+                Proplicious
+            </router-link>
+        </v-toolbar-title>
         <v-spacer />
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn
@@ -66,3 +74,8 @@ export default {
     }
 };
 </script>
+<style lang="sass" scoped>
+.toolbar-title {
+    cursor: pointer;
+}
+</style>
