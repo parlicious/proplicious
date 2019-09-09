@@ -57,10 +57,10 @@ export default {
     computed : {
         callsAndPuts : function() {
             const combined = [];
-            for(let i = 0; i < this.contestant.calls.length; i++) {
+            for(let i = 0; i < this.contestant.getCalls().length; i++) {
                 combined[i] = { 
-                    call : this.contestant.calls[i],
-                    put : this.contestant.puts[i],
+                    call : this.contestant.getCalls()[i],
+                    put : this.contestant.getPuts()[i],
                     key : i
                 };
             }

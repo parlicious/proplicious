@@ -1,10 +1,14 @@
 import {FETCH_STANDINGS, REFRESH_RESULTS} from './actionTypes';
 import { chain, sumBy, orderBy } from 'lodash';
 import Contestant from '../data/Contestent';
+import axios from 'axios';
+
+const getAllPicksUrl = 'https://parlicious-data-public.s3.amazonaws.com/picks/rugby-world-cup/2019/picks.json';
 
 //TODO: fetch actual contestants here
-async function fetchContestants() {
-    return [];
+function fetchContestants() {
+    return axios.get(getAllPicksUrl)
+        .then(response => response.data.pool_participants);
 }
 
 function mapContestant(contestant, resultsByCountry) {

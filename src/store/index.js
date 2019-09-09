@@ -5,7 +5,7 @@ import userModule from './userModule';
 import messageModule from './messageModule';
 import resultsModuleBuilder from './resultsModuleBuilder';
 import standingsModule from './standingsModule';
-import {SUBMIT_PICKS, SUCCESS_MESSAGE, SUBMIT_ERRORS} from './actionTypes';
+import {SUBMIT_PICKS, SUCCESS_MESSAGE, SUBMIT_ERRORS, FETCH_STANDINGS} from './actionTypes';
 import { submitPicks } from '../utils';
 Vue.use(Vuex);
 
@@ -32,6 +32,7 @@ export default new Vuex.Store({
             submitPicks(getters.picks, getters.getUser)
                 .then(successMessage => dispatch(SUCCESS_MESSAGE, successMessage))
                 .catch(errorMessage => dispatch(SUBMIT_ERRORS, [errorMessage]))
+                .then(() => dispatch(FETCH_STANDINGS))
                 .finally(() => commit('setSubmittedPicks', null));
         }
     }

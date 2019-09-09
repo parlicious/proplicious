@@ -1,4 +1,5 @@
 export default function Contestant() {
+    this.picks = {};
 }
 
 Contestant.prototype.getName = function() {
@@ -18,19 +19,19 @@ Contestant.prototype.setEmail = function(email) {
 };
 
 Contestant.prototype.getCalls = function() {
-    return this.calls;
+    return this.picks.calls;
 };
 
 Contestant.prototype.setCalls = function(calls) {
-    this.calls = calls;
+    this.picks.calls = calls;
 };
 
 Contestant.prototype.getPuts = function() {
-    return this.puts;
+    return this.picks.puts;
 };
 
 Contestant.prototype.setPuts = function(puts) {
-    this.puts = puts;
+    this.picks.puts = puts;
 };
 
 Contestant.prototype.getScore = function() {
