@@ -92,7 +92,7 @@ export default function(eventId, firstMatchTime) {
         },
         actions : {
             [REFRESH_RESULTS] : async function({commit}) {
-                const eventInfo = await getResults(resultsUrl, true);
+                const eventInfo = await getResults(resultsUrl);
                 commit(SET_MATCHES, eventInfo.matches);
             }
         }

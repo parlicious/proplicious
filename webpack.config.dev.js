@@ -1,12 +1,19 @@
 const webpack = require('webpack');
 const prodConfig = require('./webpack.config.prod');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { findIndex } = require('lodash');
 
-prodConfig.plugins.push(
-    new HtmlWebpackPlugin({
-        template: './src/index.html',
-        hot: true
-    }));
+const htmlPluginIndex = findIndex(prodConfig.plugins, (plugin) => plugin instanceof HtmlWebpackPlugin);
+const plugin = new HtmlWebpackPlugin({
+    template: './src/index.html',
+    hot: true
+});
+if(htmlPluginIndex >= 0) {
+    prodConfig.plugins[htmlPluginIndex] = plugin;
+}
+else {
+    prodConfig.plugins.push(plugin);
+}
 
 prodConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin()

@@ -4,11 +4,7 @@ import Contestant from '../data/Contestent';
 
 //TODO: fetch actual contestants here
 async function fetchContestants() {
-    return [
-        { name : 'El Chad', email : '', calls : ['South Africa', 'England', 'USA', 'France'], puts : ['Wales', 'Ireland', 'New Zealand', 'Uruguay']},
-        { name : 'The Don', email : '', calls : ['Namibia', 'Argentina', 'Georgia', 'Japan'], puts : ['Russia', 'Canada', 'Ireland', 'Australia']},
-        { name : 'Ham Bone', email : '', calls : ['New Zealand', 'USA', 'Samoa', 'Fiji'], puts: ['Tonga', 'South Africa', 'Georgia', 'Scotland']}
-    ];
+    return [];
 }
 
 function mapContestant(contestant, resultsByCountry) {
