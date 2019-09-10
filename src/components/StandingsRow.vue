@@ -6,7 +6,7 @@
         <template v-slot:activator>
             <v-list-tile>
                 <v-list-tile-title>{{ contestant.name || contestant.email }}</v-list-tile-title>
-                <v-list-tile-sub-title>{{ contestant.score }}</v-list-tile-sub-title>
+                <v-list-tile-sub-title>{{ contestant.getPrettyScore() }}</v-list-tile-sub-title>
             </v-list-tile>
         </template>
         <v-list-tile

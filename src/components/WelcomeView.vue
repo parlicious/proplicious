@@ -44,7 +44,7 @@ export default {
                 header: 'Welcome',
                 id: 'welcome',
                 text: [
-                    "Hey! I'm really excited about you showing interest in The Rugby World Cup 2019. " +
+                    "Hey! I'm really excited about you showing interest in the Rugby World Cup 2019. " +
                     "I've structured this game so that prior knowledge of the sport or teams involved " +
                     "is not required to be successful. I hope you have a great time following the Rugby World Cup.",
                     "-Chad"
@@ -77,10 +77,10 @@ export default {
                     "five teams.  That means that each team will have four matches during the pool stage. " +
                     "At the end of the pool stage, the top two teams from each pool will move onto the knockout stage, " +
                     "an eight team, three round tournament to decide the champion. The knockout stage seeding is already decided. " +
-                    "Pool A plays against Pool B and Pool C plays against Pool D. There is also a third place game " +
-                    "played by the two teams who lost in the semi finals.",
+                    "Pool A plays against Pool B and Pool C plays against Pool D. Pool winners play against runner ups in the " +
+                    "quarter finals. There is also a third place game played by the two teams who lost in the semi finals.",
                     "This means there will be a total of 48 matches during the tournament, 40 pool matches, " +
-                    "four quarter-finals, two semi-finals, the thrid place match, and the final. " +
+                    "four quarter-finals, two semi-finals, the third place match, and the final. " +
                     "The maximum number of games a team can win is seven."
                 ]
             }

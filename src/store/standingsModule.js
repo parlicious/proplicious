@@ -25,7 +25,7 @@ function mapContestant(contestant, resultsByCountry) {
             .map(name => ({ name, value : -1 * Number(resultsByCountry[name].value)})),
             'value', 'desc'
         ));
-    contestant.setScore(sumBy([...contestant.getCalls(), ...contestant.getPuts()], 'value').toFixed(2));
+    contestant.setScore(sumBy([...contestant.getCalls(), ...contestant.getPuts()], 'value'));
 
     return contestant;
 }

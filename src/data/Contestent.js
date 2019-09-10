@@ -38,6 +38,10 @@ Contestant.prototype.getScore = function() {
     return this.score;
 };
 
+Contestant.prototype.getPrettyScore = function() {
+    return this.score.toFixed(2);
+};
+
 Contestant.prototype.setScore = function(score) {
     this.score = score;
 };
