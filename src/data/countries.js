@@ -1,6 +1,11 @@
 import {keyBy} from 'lodash';
+import irfu from '../../static/img/irfu.svg';
+
+const cdnURL = 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/flags/1x1/';
 const ireland = {
     name : 'Ireland',
+    code : 'ie',
+    svg : irfu,
     flag : '🇮🇪',
     odds : 12.5,
     rank : 3,
@@ -13,6 +18,7 @@ const ireland = {
 
 const scotland = {
     name : 'Scotland',
+    code : 'gb-sct',
     flag : '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
     odds : 2.44,
     ew   : 2.87,
@@ -25,6 +31,7 @@ const scotland = {
 
 const japan = {
     name : 'Japan',
+    code : 'jp',
     flag : '🇯🇵',
     odds : .332,
     ew   : 2.41,
@@ -37,6 +44,7 @@ const japan = {
 
 const samoa = {
     name : 'Samoa',
+    code : 'ws',
     flag : '🇼🇸',
     rank : 16,
     odds : .1,
@@ -49,6 +57,7 @@ const samoa = {
 
 const russia = {
     name : 'Russia',
+    code : 'ru',
     flag : '🇷🇺',
     odds : .013,
     ew   : .07,
@@ -61,6 +70,7 @@ const russia = {
 
 const nz = {
     name : 'New Zealand',
+    code : 'nz',
     flag : '🇳🇿',
     odds : 45.5,
     ew   : 5.28,
@@ -73,6 +83,7 @@ const nz = {
 
 const sa = {
     name : 'South Africa',
+    code : 'za',
     flag : '🇿🇦',
     odds : 9.09,
     ew   : 4.15,
@@ -85,6 +96,7 @@ const sa = {
 
 const italy = {
     name : 'Italy',
+    code : 'it',
     flag : '🇮🇹',
     rank : 14,
     odds : .04,
@@ -97,6 +109,7 @@ const italy = {
 
 const canada = {
     name : 'Canada',
+    code : 'ca',
     flag : '🇨🇦',
     rank : 21,
     odds : .013,
@@ -109,6 +122,7 @@ const canada = {
 
 const namibia = {
     name : 'Namibia',
+    code : 'na',
     flag : '🇳🇦',
     odds : .013,
     ew   : .45,
@@ -121,6 +135,7 @@ const namibia = {
 
 const england = {
     name : 'England',
+    code : 'gb-eng',
     flag : '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
     odds : 14.3,
     ew   : 4.59,
@@ -133,6 +148,7 @@ const england = {
 
 const france = {
     name : 'France',
+    code : 'fr',
     flag : '🇫🇷',
     rank : 8,
     odds : 2.55,
@@ -145,6 +161,7 @@ const france = {
 
 const argentina = {
     name : 'Argentina',
+    code : 'ar',
     flag : '🇦🇷',
     odds : 1.96,
     ew   : 2.8,
@@ -157,6 +174,7 @@ const argentina = {
 
 const tonga = {
     name : 'Tonga',
+    code : 'to',
     flag : '🇹🇴',
     odds : .04,
     ew   : .75,
@@ -169,6 +187,7 @@ const tonga = {
 
 const usa = {
     name : 'USA',
+    code : 'us',
     flag : '🇺🇸',
     rank : 15,
     odds : .02,
@@ -181,6 +200,7 @@ const usa = {
 
 const australia = {
     name : 'Australia',
+    code : 'au',
     flag : '🇦🇺',
     rank : 6,
     odds : 5.88,
@@ -193,6 +213,7 @@ const australia = {
 
 const wales = {
     name : 'Wales',
+    code : 'gb-wls',
     flag : '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
     odds : 11.1,
     ew   : 4.55,
@@ -205,6 +226,7 @@ const wales = {
 
 const fiji = {
     name : 'Fiji',
+    code : 'fj',
     flag : '🇫🇯',
     odds : .2,
     ew   : 2.01,
@@ -217,6 +239,7 @@ const fiji = {
 
 const georgia = {
     name : 'Georgia',
+    code : 'ge',
     flag : '🇬🇪',
     rank : 12,
     odds : .1,
@@ -229,6 +252,7 @@ const georgia = {
 
 const uruguay = {
     name : 'Uruguay',
+    code : 'uy',
     flag : '🇺🇾',
     odds : .013,
     ew   : .04,
@@ -260,5 +284,5 @@ export default keyBy([
     fiji,
     georgia,
     uruguay
-], 'name');
+].map(country => Object.assign({svg : `${cdnURL}${country.code}.svg`}, country)), 'name');
 

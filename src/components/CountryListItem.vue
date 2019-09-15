@@ -4,7 +4,10 @@
             :href="country.intro"
             class="flag"
             target="_blank"
-        >{{ country.flag }}</a>
+        ><img 
+            :src="country.svg"
+            class="country-svg"
+        ></a>
         <span class="name">{{ country.name }}</span>
         <span
             class="ew"
@@ -99,13 +102,24 @@ li {
 .flag {
     text-decoration:none;
     position: absolute;
+    left : -.1em;
+    top : 0;
+    width : 1.2em;
     font-size: 115%;
-    transition: font-size .1s;
+    transition: font-size .1s, left .1s, top .1s;
+    height : 1.2em;
+    border-radius : .3em;
+    overflow:hidden;
     &:hover{
         font-size: 140%;
+        left : -.2em;
+        top : -.1em;
     }
     &:active {
         font-size: 115%;
+    }
+    .country-svg {
+        width : 1.2em;
     }
 }
 
