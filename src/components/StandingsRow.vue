@@ -5,7 +5,7 @@
     >
         <template v-slot:activator>
             <v-list-tile>
-                <v-list-tile-title>{{ contestant.name || contestant.email }}</v-list-tile-title>
+                <v-list-tile-title>{{ `${place}. ${contestant.name || contestant.email}` }}</v-list-tile-title>
                 <v-list-tile-sub-title>{{ contestant.getPrettyScore() }}</v-list-tile-sub-title>
             </v-list-tile>
         </template>
@@ -48,6 +48,10 @@ export default {
     props : {
         contestant : {
             type : Object,
+            required : true
+        },
+        place : {
+            type : Number,
             required : true
         }
     },

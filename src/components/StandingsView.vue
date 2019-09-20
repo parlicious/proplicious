@@ -12,8 +12,9 @@
             >
                 <v-list :dense="true">
                     <standings-row
-                        v-for="row in standings"
+                        v-for="(row, index) in standings"
                         :key="row.name"
+                        :place="index + 1"
                         :contestant="row"
                     />
                 </v-list>

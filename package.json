@@ -13,6 +13,7 @@
     "predeploy": "npm run build",
     "deploy": "firebase deploy",
     "clean": "rimraf build",
+    "prefirebase:host": "npm run build",
     "firebase:host": "firebase serve --only hosting"
   },
   "author": "",
