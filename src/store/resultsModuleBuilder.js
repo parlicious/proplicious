@@ -11,10 +11,13 @@ function determineResultForTeam(match, teamName, opponent) {
     if(match.status === 'U' || match.status === 'D') {
         result = match.status;
     }
-    else if(match.status === 'A') {
+    else if(match.outcome === 'D') {
+        result = match.outcome;
+    }
+    else if(match.outcome === 'A') {
         result = teamIsA ? 'W' : 'L';
     }
-    else if(match.status === 'B') {
+    else if(match.outcome === 'B') {
         result = !teamIsA ? 'W' : 'L';
     }
     else {
