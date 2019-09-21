@@ -24,6 +24,12 @@
                         <v-tab :class="textClass">
                             Fixtures
                         </v-tab>
+                        <v-tab :class="textClass">
+                            Believers
+                        </v-tab>
+                        <v-tab :class="textClass">
+                            Doubters
+                        </v-tab>
                     </v-tabs>
                 </template>
             </v-toolbar>
@@ -36,6 +42,18 @@
                 <v-tab-item>
                     <fixtures-container :matches="matchInfo.matches" />
                 </v-tab-item>
+                <v-tab-item>
+                    <selectors-of-country 
+                        :country="country"
+                        :calls="true"
+                    />
+                </v-tab-item>
+                <v-tab-item>
+                    <selectors-of-country 
+                        :country="country"
+                        :calls="false"
+                    />
+                </v-tab-item>
             </v-tabs-items>
         </v-card-text>
     </v-card>
@@ -43,6 +61,7 @@
 
 <script>
 import FixturesContainer from './FixturesContainer.vue';
+import SelectorsOfCountry from './SelectorsOfCountry.vue';
 import CountrySummary from './CountrySummary.vue';
 import countries from '../data/countries';
 import { VToolbar, VTabs, VTabsItems, VTabItem, VToolbarTitle, VTab, VCard, VCardText, VCardTitle } from 'vuetify/lib';
@@ -58,7 +77,8 @@ export default {
         VTab,
         VCard,
         VCardText,
-        VCardTitle
+        VCardTitle,
+        SelectorsOfCountry
     },
     props : {
         matchInfo : {

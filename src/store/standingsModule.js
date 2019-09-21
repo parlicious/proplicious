@@ -31,13 +31,38 @@ function mapContestant(contestant, resultsByCountry) {
 }
 export default {
     state : {
-        standings : null
+        standings : null,
+        callsByCountry : {},
+        putsByCountry : {}
     },
     mutations : {
-        setStandings : (state, standings) => state.standings = standings
+        setStandings : (state, standings) => {
+            state.standings = standings;
+            const callsByCountry = {};
+            const putsByCountry = {};
+
+            standings.forEach(contestant => {
+                contestant.getCalls().forEach(call => {
+                    const country = call.name;
+                    const countryCalls = callsByCountry[country] || [];
+                    callsByCountry[country] = countryCalls;
+                    countryCalls.push(contestant);
+                });
+                contestant.getPuts().forEach(put => {
+                    const country = put.name;
+                    const countryPuts = putsByCountry[country] || [];
+                    putsByCountry[country] = countryPuts;
+                    countryPuts.push(contestant);
+                });
+            });
+            state.callsByCountry = callsByCountry;
+            state.putsByCountry = putsByCountry;
+        }
     },
     getters : {
-        standings : ({standings}) => standings
+        standings : ({standings}) => standings,
+        callsForCountry : ({callsByCountry}) => (country) => callsByCountry[country],
+        putsForCountry : ({putsByCountry}) => (country) => putsByCountry[country]
     },
     actions : {
         [FETCH_STANDINGS] : async ({rootGetters, commit, dispatch}) => {
