@@ -1,6 +1,7 @@
 <template>
     <v-card 
         width="30em"
+        max-width="100%"
         class="ma-2"
     >
         <v-card-title>
@@ -104,3 +105,8 @@ export default {
     }
 };
 </script>
+<style lang="sass" scoped>
+.textClass {
+    font-size : .8em;
+}
+</style>
