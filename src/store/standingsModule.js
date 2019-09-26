@@ -16,16 +16,31 @@ function mapContestant(contestant, resultsByCountry) {
 
     contestant.setCalls(
         orderBy(contestant.getCalls()
-            .map(name => ({ name, value : Number(resultsByCountry[name].value)})),
+            .map(name => {
+                const resultForCountry = resultsByCountry[name];
+                return { 
+                    name,
+                    value : Number(resultForCountry.value), 
+                    originalValue: -1 * Number(resultForCountry.ew)
+                };
+            }),
             'value',
             'desc'
         ));
     contestant.setPuts(
         orderBy(contestant.getPuts()
-            .map(name => ({ name, value : -1 * Number(resultsByCountry[name].value)})),
+            .map(name => {
+                const resultForCountry = resultsByCountry[name];
+                return {
+                    name,
+                    value : -1 * Number(resultForCountry.value),
+                    originalValue : Number(resultForCountry.ew)
+                };
+            }),
             'value', 'desc'
         ));
     contestant.setScore(sumBy([...contestant.getCalls(), ...contestant.getPuts()], 'value'));
+    contestant.setOriginalScore(sumBy([...contestant.getCalls(), ...contestant.getPuts()], 'originalValue'));
 
     return contestant;
 }

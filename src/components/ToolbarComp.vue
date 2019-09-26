@@ -39,6 +39,12 @@
                 Standings
             </v-btn>
             <v-btn 
+                to="/chart"
+                flat
+            >
+                Chart
+            </v-btn>
+            <v-btn 
                 to="/results"
                 flat
             >

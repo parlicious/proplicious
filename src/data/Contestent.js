@@ -1,3 +1,4 @@
+import {find} from 'lodash';
 export default function Contestant() {
     this.picks = {};
 }
@@ -44,4 +45,24 @@ Contestant.prototype.getPrettyScore = function() {
 
 Contestant.prototype.setScore = function(score) {
     this.score = score;
+};
+
+Contestant.prototype.getOriginalScore = function() {
+    return this.originalScore;
+};
+
+Contestant.prototype.getPrettyOriginalScore = function() {
+    return this.originalScore.toFixed(2);
+};
+
+Contestant.prototype.setOriginalScore = function(score) {
+    this.originalScore = score;
+};
+
+Contestant.prototype.hasCallOn = function(country) {
+    return find(this.getCalls(), {name:country});
+};
+
+Contestant.prototype.hasPutOn = function(country) {
+    return find(this.getPuts(), {name:country});
 };

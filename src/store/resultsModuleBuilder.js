@@ -91,7 +91,8 @@ export default function(eventId, firstMatchTime) {
         getters : {
             matchesByTeam : ({matchesByTeam}) => matchesByTeam,
             matchesForTeam : ({matchesByTeam}) => (teamName) => matchesByTeam && matchesByTeam[teamName],
-            firstMatchTime : ({firstMatchTime}) => firstMatchTime
+            firstMatchTime : ({firstMatchTime}) => firstMatchTime,
+            matches : ({matches}) => matches
         },
         actions : {
             [REFRESH_RESULTS] : async function({commit}) {

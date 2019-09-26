@@ -4,6 +4,7 @@ import ResultsView from './components/ResultsView.vue';
 import StandingsView from './components/StandingsView.vue';
 import VueRouter from 'vue-router';
 import WelcomeView from './components/WelcomeView.vue';
+import ChartView from './components/ChartView.vue';
 
 Vue.use(VueRouter);
 
@@ -18,7 +19,8 @@ const Router = new VueRouter({
             name: 'results'
               
         },
-        { path: '/standings', component: StandingsView, name: 'standings'}
+        { path: '/standings', component: StandingsView, name: 'standings'},
+        { path: '/chart', component: ChartView, name: 'chart'}
     ],
     scrollBehavior: (to) => new Promise(resolve => {
         const position = {};
