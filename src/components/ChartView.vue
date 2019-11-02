@@ -115,7 +115,7 @@ function buildChartData(standings, matches) {
     if(!standings) {
         return null;
     }
-    const completedMatches = filter(matches, match => match.status === 'C');
+    const completedMatches = filter(matches, match => (match.status === 'C' || match.status === 'CC'));
     const labels = ['Start'];
     completedMatches.forEach(({teams}) => {
         labels.push(`${teams[0].name} v ${teams[1].name}`);
@@ -132,7 +132,7 @@ function buildChartData(standings, matches) {
         };
     });
     completedMatches.forEach(match => {
-        if(match.outcome === 'D') {
+        if(match.outcome === 'D' || match.status === 'CC') {
             const team1 = match.teams[0].name;
             const team2 = match.teams[1].name;
             standings.forEach((contestant, index) => {
